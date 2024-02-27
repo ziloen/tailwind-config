@@ -61,6 +61,11 @@ export function pluginCreator({ addUtilities, addVariant, matchUtilities, theme 
     '.justify-safe-end': {
       'justify-content': 'safe end',
     },
+
+
+    '.outline-solid': {
+      'outline-style': 'solid',
+    }
   })
 
   // Webkit scrollbar pseudo
