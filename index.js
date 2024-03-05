@@ -95,6 +95,7 @@ export const preset = {
       white: '#fff',
 
       // Custom colors
+      // https://mozilla.design/firefox/#color
       green: {
         '50': '#e3fff3',
         '100': '#D0FFED',
@@ -207,7 +208,18 @@ export const preset = {
     },
   },
 
+  experimental: {
+    // Remove unused global css variables, e.g. --tw-translate-x: 0;
+    optimizeUniversalDefaults: true,
+
+    // matchVariant: true,
+  },
+
   plugins: [
     pluginCreator,
-  ]
+  ],
+
+  // https://tailwindcss.com/docs/theme#configuration-reference
+  // https://github.com/tailwindlabs/tailwindcss/blob/master/src/corePlugins.js
+  corePlugins: {},
 }
