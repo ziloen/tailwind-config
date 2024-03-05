@@ -65,7 +65,15 @@ export function pluginCreator({ addUtilities, addVariant, matchUtilities, theme 
 
     '.outline-solid': {
       'outline-style': 'solid',
-    }
+    },
+
+    '.h-stretch': {
+      'height': 'stretch'
+    },
+    '.w-stretch': {
+      'width': 'stretch'
+    },
+
   })
 
   // Webkit scrollbar pseudo
