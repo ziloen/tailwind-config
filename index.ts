@@ -1,7 +1,7 @@
-/**
- * @param {import("tailwindcss/types/config").PluginAPI} api
- */
-export function pluginCreator({ addUtilities, addVariant, matchUtilities, theme }) {
+import type { PluginAPI, PresetsConfig, Config } from "tailwindcss/types/config"
+
+
+export function pluginCreator({ addUtilities, addVariant, matchUtilities, theme }: PluginAPI) {
   addUtilities({
     // Flex
     '.flex-center': {
@@ -83,7 +83,6 @@ export function pluginCreator({ addUtilities, addVariant, matchUtilities, theme 
   addVariant('scrollbar-button', '&::-webkit-scrollbar-button')
 }
 
-/** @type {import("tailwindcss/types/config").PresetsConfig} */
 export const preset = {
   theme: {
     colors: {
@@ -215,6 +214,9 @@ export const preset = {
     // matchVariant: true,
   },
 
+  /**
+   * @satisfies {import("tailwindcss/types/config").PluginsConfig}
+   */
   plugins: [
     pluginCreator,
   ],
@@ -222,11 +224,11 @@ export const preset = {
   // https://tailwindcss.com/docs/theme#configuration-reference
   // https://github.com/tailwindlabs/tailwindcss/blob/master/src/corePlugins.js
   corePlugins: {},
-}
+} satisfies PresetsConfig
 
-/**
- * @param {import("tailwindcss/types/config").Config} config 
- */
-export function defineConfig(config) {
+export type PresetTheme = typeof preset.theme
+
+export function defineConfig<T extends Config>(config: T) {
   return config
 }
+

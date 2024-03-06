@@ -3,11 +3,9 @@
   "version": "1.1.1",
   "description": "",
   "type": "module",
-  "main": "index.js",
-  "types": "index.d.ts",
+  "main": "index.ts",
   "files": [
-    "index.js",
-    "index.d.ts"
+    "index.ts"
   ],
   "scripts": {
     "release": "bumpp --commit --no-push && npm publish"
