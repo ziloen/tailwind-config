@@ -223,3 +223,10 @@ export const preset = {
   // https://github.com/tailwindlabs/tailwindcss/blob/master/src/corePlugins.js
   corePlugins: {},
 }
+
+/**
+ * @param {import("tailwindcss/types/config").Config} config 
+ */
+export function defineConfig(config) {
+  return config
+}

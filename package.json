@@ -4,11 +4,11 @@
   "description": "",
   "type": "module",
   "main": "index.js",
+  "types": "index.d.ts",
   "files": [
     "index.js",
     "index.d.ts"
   ],
-  "types": "index.d.ts",
   "scripts": {
     "release": "bumpp --commit --no-push && npm publish"
   },
