@@ -9,6 +9,11 @@ export function pluginCreator({ addUtilities, addVariant, matchUtilities, theme 
       'justify-content': 'center',
       'align-items': 'center',
     },
+    '.inline-flex-center': {
+      display: 'inline-flex',
+      'justify-content': 'center',
+      'align-items': 'center',
+    },
     '.flex-justify': {
       display: 'flex',
       'justify-content': 'center',
@@ -80,6 +85,7 @@ export function pluginCreator({ addUtilities, addVariant, matchUtilities, theme 
   addVariant('scrollbar', '&::-webkit-scrollbar')
   addVariant('scrollbar-thumb', '&::-webkit-scrollbar-thumb')
   addVariant('scrollbar-track', '&::-webkit-scrollbar-track')
+  addVariant("scrollbar-track-piece", "&::-webkit-scrollbar-track-piece")
   addVariant('scrollbar-button', '&::-webkit-scrollbar-button')
 }
 
@@ -191,6 +197,32 @@ export const preset = {
         '800': '#A7341F',
         '900': '#960F18',
       },
+
+      // https://protocol.mozilla.org/docs/fundamentals/color
+      "light-gray": {
+        50: "#ffffff",
+        100: "#f9f9fb",
+        200: "#f0f0f4",
+        300: "#e0e0e6",
+        400: "#cfcfd8",
+        500: "#bfbfc9",
+        600: "#afafba",
+        700: "#9f9fad",
+        800: "#8f8f9e",
+        900: "#80808f",
+      },
+      "dark-gray": {
+        50: "#5b5b66",
+        100: "#52525e",
+        200: "#4a4a55",
+        300: "#42414d",
+        400: "#3a3944",
+        500: "#32313c",
+        600: "#2b2a33",
+        700: "#23222b",
+        800: "#1c1b22",
+        900: "#15141a",
+      }
     },
 
     lineHeight: {
