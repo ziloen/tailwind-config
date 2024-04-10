@@ -1,5 +1,5 @@
 import type { PluginAPI, PresetsConfig, Config } from "tailwindcss/types/config"
-
+import containerQueries from "@tailwindcss/container-queries"
 
 export function pluginCreator({ addUtilities, addVariant, matchUtilities, theme }: PluginAPI) {
   addUtilities({
@@ -251,6 +251,7 @@ export const preset = {
    */
   plugins: [
     pluginCreator,
+    containerQueries,
   ],
 
   // https://tailwindcss.com/docs/theme#configuration-reference
