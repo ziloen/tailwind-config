@@ -89,7 +89,15 @@ export function pluginCreator({ addUtilities, addVariant, matchUtilities, theme 
     ".resizable": {
       "resize": "both",
       "overflow": "hidden",
-    }
+    },
+
+
+    '.writing-vertical-rl': {
+      'writing-mode': 'vertical-rl',
+    },
+    '.writing-vertical-lr': {
+      'writing-mode': 'vertical-lr',
+    },
   })
 
   // Webkit scrollbar pseudo
