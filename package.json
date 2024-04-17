@@ -1,6 +1,6 @@
 {
   "name": "@ziloen/tailwind-config",
-  "version": "1.1.3",
+  "version": "1.1.4",
   "description": "",
   "type": "module",
   "main": "dist/index.js",
