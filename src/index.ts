@@ -90,6 +90,14 @@ export function pluginCreator({ addUtilities, addVariant, matchUtilities, theme 
       "resize": "both",
       "overflow": "hidden",
     },
+    ".resizable-x": {
+      "resize": "horizontal",
+      "overflow": "hidden"
+    },
+    ".resizable-y": {
+      "resize": "vertical",
+      "overflow": "hidden"
+    },
 
 
     '.writing-vertical-rl': {
