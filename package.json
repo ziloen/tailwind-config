@@ -20,7 +20,7 @@
     "access": "public"
   },
   "devDependencies": {
-    "bumpp": "^9.4.0",
+    "bumpp": "^9.4.1",
     "tsup": "^8.0.2",
     "typescript": "^5.4.5"
   },

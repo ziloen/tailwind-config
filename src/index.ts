@@ -1,7 +1,19 @@
 import type { Config, PluginAPI, PresetsConfig } from "tailwindcss/types/config"
 import containerQueries from "@tailwindcss/container-queries"
+import flattenColorPalette from "tailwindcss/lib/util/flattenColorPalette"
+import withAlphaVariable, { withAlphaValue } from "tailwindcss/lib/util/withAlphaVariable"
+import toColorValue from "tailwindcss/lib/util/toColorValue"
 
-export function pluginCreator({ addUtilities, addVariant, matchUtilities, theme }: PluginAPI) {
+export function pluginCreator({
+  addBase,
+  addComponents,
+  addUtilities,
+  addVariant,
+  matchUtilities,
+  matchVariant,
+  matchComponents,
+  theme,
+}: PluginAPI) {
   addUtilities({
     // Flex
     '.flex-center': {
@@ -106,6 +118,32 @@ export function pluginCreator({ addUtilities, addVariant, matchUtilities, theme 
     '.writing-vertical-lr': {
       'writing-mode': 'vertical-lr',
     },
+  })
+
+  matchUtilities({
+    "text-stroke": (value, { modifier }) => ({
+      "-webkit-text-stroke-width": value,
+    })
+  }, {
+    type: "length",
+    values: theme("borderWidth")
+  })
+
+  matchUtilities({
+    "text-stroke": (value, { modifier }) => {
+      // return withAlphaVariable({
+      //   color: value,
+      //   property: '-webkit-text-stroke-color',
+      //   variable: '--tw-text-stroke-color',
+      // })
+
+      return {
+        "-webkit-text-stroke-color": value,
+      }
+    }
+  }, {
+    type: ["color", "any"],
+    values: flattenColorPalette(theme("colors")),
   })
 
   // Webkit scrollbar pseudo
