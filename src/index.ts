@@ -1,8 +1,8 @@
 import type { Config, PluginAPI, PresetsConfig } from "tailwindcss/types/config"
 import containerQueries from "@tailwindcss/container-queries"
-import flattenColorPalette from "tailwindcss/lib/util/flattenColorPalette"
-import withAlphaVariable, { withAlphaValue } from "tailwindcss/lib/util/withAlphaVariable"
-import toColorValue from "tailwindcss/lib/util/toColorValue"
+import flattenColorPalette from "tailwindcss/lib/util/flattenColorPalette.js"
+import withAlphaVariable, { withAlphaValue } from "tailwindcss/lib/util/withAlphaVariable.js"
+import toColorValue from "tailwindcss/lib/util/toColorValue.js"
 
 export function pluginCreator({
   addBase,
@@ -129,6 +129,7 @@ export function pluginCreator({
     values: theme("borderWidth")
   })
 
+  // FIXME: No color decorator
   matchUtilities({
     "text-stroke": (value, { modifier }) => {
       // return withAlphaVariable({
