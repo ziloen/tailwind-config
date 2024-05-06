@@ -1,4 +1,4 @@
-import { defineConfig, preset } from '../src'
+import { defineConfig, preset } from '../dist/index.js'
 
 
 export default defineConfig({

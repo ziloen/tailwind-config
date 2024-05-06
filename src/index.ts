@@ -1,6 +1,5 @@
 import type { Config, PluginAPI, PresetsConfig } from "tailwindcss/types/config"
 import containerQueries from "@tailwindcss/container-queries"
-import flattenColorPalette from "tailwindcss/lib/util/flattenColorPalette.js"
 import withAlphaVariable, { withAlphaValue } from "tailwindcss/lib/util/withAlphaVariable.js"
 import toColorValue from "tailwindcss/lib/util/toColorValue.js"
 
@@ -328,3 +327,16 @@ export function defineConfig<T extends Config>(config: T) {
   return config
 }
 
+// tailwindcss/lib/util/flattenColorPalette.js
+function flattenColorPalette(colors: unknown) {
+  return Object.assign(
+    {},
+    ...Object.entries(colors ?? {}).flatMap(([color, values]) => {
+      return typeof values === 'object'
+        ? Object.entries(flattenColorPalette(values)).map(([number, hex]) => ({
+          [color + (number === 'DEFAULT' ? '' : `-${number}`)]: hex,
+        }))
+        : [{ [`${color}`]: values }]
+    })
+  )
+}
