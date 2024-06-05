@@ -96,6 +96,10 @@ export function pluginCreator({
     '.w-stretch': {
       'width': 'stretch'
     },
+    '.size-stretch': {
+      'width': 'stretch',
+      'height': 'stretch'
+    },
 
     ".resizable": {
       "resize": "both",
@@ -152,6 +156,7 @@ export function pluginCreator({
   addVariant('scrollbar-track', '&::-webkit-scrollbar-track')
   addVariant("scrollbar-track-piece", "&::-webkit-scrollbar-track-piece")
   addVariant('scrollbar-button', '&::-webkit-scrollbar-button')
+  addVariant('display-mode-fullscreen', '@media (display-mode: fullscreen)')
 }
 
 export const preset = {
