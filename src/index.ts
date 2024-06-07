@@ -121,6 +121,15 @@ export function pluginCreator({
     '.writing-vertical-lr': {
       'writing-mode': 'vertical-lr',
     },
+    ".writing-horizontal-tb": {
+      "writing-mode": "horizontal-tb",
+    },
+    ".writing-sideways-rl": {
+      "writing-mode": "sideways-rl",
+    },
+    ".writing-sideways-lr": {
+      "writing-mode": "sideways-lr",
+    },
   })
 
   matchUtilities({
