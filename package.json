@@ -10,7 +10,7 @@
   ],
   "scripts": {
     "build": "tsup",
-    "prepack": "npm run build",
+    "prepack": "tsup --minify",
     "release": "bumpp --commit --no-push && npm publish"
   },
   "keywords": [],
