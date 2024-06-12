@@ -8,9 +8,9 @@ export function pluginCreator({
   addComponents,
   addUtilities,
   addVariant,
+  matchComponents,
   matchUtilities,
   matchVariant,
-  matchComponents,
   theme,
 }: PluginAPI) {
   addUtilities({
@@ -158,6 +158,24 @@ export function pluginCreator({
     type: ["color", "any"],
     values: flattenColorPalette(theme("colors")),
   })
+
+
+
+  matchUtilities(
+    {
+      "bg-grid": (value: string) => ({
+        backgroundImage: `url("${svgToDataUri(
+          `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32" fill="none" stroke="${value}"><path d="M0 .5H31.5V32"/></svg>`
+        )}")`,
+      }),
+      "bg-checkerboard": (value: string) => ({
+        backgroundImage: `url("${svgToDataUri(
+          `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32"><path fill="${value}" stroke="none" d="M0 0h16v32h16v-16h-32z"/><path fill="#fff" stroke="none" d="M0 32h16v-32h16v16h-32z"/></svg>`
+        )}")`,
+      })
+    },
+    { values: flattenColorPalette(theme("backgroundColor")), type: "color" }
+  )
 
   // Webkit scrollbar pseudo
   addVariant('scrollbar', '&::-webkit-scrollbar')
@@ -353,4 +371,12 @@ function flattenColorPalette(colors: unknown) {
         : [{ [`${color}`]: values }]
     })
   )
+}
+
+function svgToDataUri(svg: string) {
+  return "data:image/svg+xml," + encodeURIComponent(collapseWhitespace(svg))
+}
+
+function collapseWhitespace(str: string) {
+  return str.trim().replace(/\s+/g, ' ')
 }
