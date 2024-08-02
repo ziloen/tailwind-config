@@ -13,6 +13,7 @@ export function pluginCreator({
   matchVariant,
   theme,
 }: PluginAPI) {
+  // TODO: v4 use `staticUtility`
   addUtilities({
     // Flex
     '.flex-center': {
@@ -40,6 +41,13 @@ export function pluginCreator({
     '.flex-column': {
       display: 'flex',
       'flex-direction': 'column',
+    },
+
+    "basis-max": {
+      "flex-basis": "max-content",
+    },
+    "basis-min": {
+      "flex-basis": "min-content",
     },
 
     // Scrollbar
@@ -130,6 +138,11 @@ export function pluginCreator({
     ".writing-sideways-lr": {
       "writing-mode": "sideways-lr",
     },
+
+    // modern way to create block formatting context
+    ".clear-fix": {
+      "display": "flow-root",
+    }
   })
 
   matchUtilities({
