@@ -1,7 +1,9 @@
 import type { Config, PluginAPI, PresetsConfig } from "tailwindcss/types/config"
-import containerQueries from "@tailwindcss/container-queries"
 import withAlphaVariable, { withAlphaValue } from "tailwindcss/lib/util/withAlphaVariable.js"
 import toColorValue from "tailwindcss/lib/util/toColorValue.js"
+import { containerQueries } from "./containerQueries"
+export { containerQueries } from "./containerQueries"
+
 
 export function pluginCreator({
   addBase,
@@ -174,28 +176,28 @@ export function pluginCreator({
 
 
 
-  matchUtilities(
-    {
-      "bg-grid": (value: string) => ({
-        backgroundImage: `url("${svgToDataUri(
-          `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32" fill="none" stroke="${value}"><path d="M0 .5H31.5V32"/></svg>`
-        )}")`,
-      }),
-      "bg-checkerboard": (value: string) => ({
-        backgroundImage: `url("${svgToDataUri(
-          `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32"><path fill="${value}" stroke="none" d="M0 0h16v32h16v-16h-32z"/><path fill="#fff" stroke="none" d="M0 32h16v-32h16v16h-32z"/></svg>`
-        )}")`,
-      })
-    },
-    { values: flattenColorPalette(theme("backgroundColor")), type: "color" }
-  )
+  // matchUtilities(
+  //   {
+  //     "bg-grid": (value: string) => ({
+  //       backgroundImage: `url("${svgToDataUri(
+  //         `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32" fill="none" stroke="${value}"><path d="M0 .5H31.5V32"/></svg>`
+  //       )}")`,
+  //     }),
+  //     "bg-checkerboard": (value: string) => ({
+  //       backgroundImage: `url("${svgToDataUri(
+  //         `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32"><path fill="${value}" stroke="none" d="M0 0h16v32h16v-16h-32z"/><path fill="#fff" stroke="none" d="M0 32h16v-32h16v16h-32z"/></svg>`
+  //       )}")`,
+  //     })
+  //   },
+  //   { values: flattenColorPalette(theme("backgroundColor")), type: "color" }
+  // )
 
   // Webkit scrollbar pseudo
-  addVariant('scrollbar', '&::-webkit-scrollbar')
-  addVariant('scrollbar-thumb', '&::-webkit-scrollbar-thumb')
-  addVariant('scrollbar-track', '&::-webkit-scrollbar-track')
-  addVariant("scrollbar-track-piece", "&::-webkit-scrollbar-track-piece")
-  addVariant('scrollbar-button', '&::-webkit-scrollbar-button')
+  addVariant('webkit-scrollbar', '&::-webkit-scrollbar')
+  addVariant('webkit-scrollbar-thumb', '&::-webkit-scrollbar-thumb')
+  addVariant('webkit-scrollbar-track', '&::-webkit-scrollbar-track')
+  addVariant('webkit-scrollbar-track-piece', '&::-webkit-scrollbar-track-piece')
+  addVariant('webkit-scrollbar-button', '&::-webkit-scrollbar-button')
   addVariant('display-mode-fullscreen', '@media (display-mode: fullscreen)')
 }
 
