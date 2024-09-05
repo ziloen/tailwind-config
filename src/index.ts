@@ -45,10 +45,10 @@ export function pluginCreator({
       'flex-direction': 'column',
     },
 
-    "basis-max": {
+    ".basis-max": {
       "flex-basis": "max-content",
     },
-    "basis-min": {
+    ".basis-min": {
       "flex-basis": "min-content",
     },
 
@@ -148,7 +148,7 @@ export function pluginCreator({
   })
 
   matchUtilities({
-    "text-stroke": (value, { modifier }) => ({
+    ".text-stroke": (value, { modifier }) => ({
       "-webkit-text-stroke-width": value,
     })
   }, {
@@ -158,7 +158,7 @@ export function pluginCreator({
 
   // FIXME: No color decorator
   matchUtilities({
-    "text-stroke": (value, { modifier }) => {
+    ".text-stroke": (value, { modifier }) => {
       // return withAlphaVariable({
       //   color: value,
       //   property: '-webkit-text-stroke-color',
@@ -198,7 +198,7 @@ export function pluginCreator({
   addVariant('webkit-scrollbar-track', '&::-webkit-scrollbar-track')
   addVariant('webkit-scrollbar-track-piece', '&::-webkit-scrollbar-track-piece')
   addVariant('webkit-scrollbar-button', '&::-webkit-scrollbar-button')
-  addVariant('display-mode-fullscreen', '@media (display-mode: fullscreen)')
+  // addVariant('display-mode-fullscreen', '@media (display-mode: fullscreen)')
 }
 
 export const preset = {
