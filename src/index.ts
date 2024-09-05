@@ -148,7 +148,7 @@ export function pluginCreator({
   })
 
   matchUtilities({
-    ".text-stroke": (value, { modifier }) => ({
+    "text-stroke": (value, { modifier }) => ({
       "-webkit-text-stroke-width": value,
     })
   }, {
@@ -158,7 +158,7 @@ export function pluginCreator({
 
   // FIXME: No color decorator
   matchUtilities({
-    ".text-stroke": (value, { modifier }) => {
+    "text-stroke": (value, { modifier }) => {
       // return withAlphaVariable({
       //   color: value,
       //   property: '-webkit-text-stroke-color',
