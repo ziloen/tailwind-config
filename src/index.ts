@@ -1,7 +1,7 @@
+/* eslint-disable @typescript-eslint/unbound-method */
 import type { Config, PluginAPI, PresetsConfig } from "tailwindcss/types/config"
-import withAlphaVariable, { withAlphaValue } from "tailwindcss/lib/util/withAlphaVariable.js"
-import toColorValue from "tailwindcss/lib/util/toColorValue.js"
 import { containerQueries } from "./containerQueries"
+
 export { containerQueries } from "./containerQueries"
 
 
@@ -40,21 +40,11 @@ export function pluginCreator({
       display: 'flex',
       'justify-content': 'space-between',
     },
-    '.flex-column': {
-      display: 'flex',
-      'flex-direction': 'column',
-    },
-
-    ".basis-max": {
-      "flex-basis": "max-content",
-    },
-    ".basis-min": {
-      "flex-basis": "min-content",
-    },
 
     // Scrollbar
     '.scrollbar-none': {
       'scrollbar-width': 'none',
+
       '&::-webkit-scrollbar': {
         display: 'none',
       },
@@ -95,22 +85,6 @@ export function pluginCreator({
       'justify-content': 'safe end',
     },
 
-
-    '.outline-solid': {
-      'outline-style': 'solid',
-    },
-
-    '.h-stretch': {
-      'height': 'stretch'
-    },
-    '.w-stretch': {
-      'width': 'stretch'
-    },
-    '.size-stretch': {
-      'width': 'stretch',
-      'height': 'stretch'
-    },
-
     ".resizable": {
       "resize": "both",
       "overflow": "hidden",
@@ -124,7 +98,7 @@ export function pluginCreator({
       "overflow": "hidden"
     },
 
-
+    // Writing mode
     '.writing-vertical-rl': {
       'writing-mode': 'vertical-rl',
     },
@@ -141,14 +115,64 @@ export function pluginCreator({
       "writing-mode": "sideways-lr",
     },
 
-    // modern way to create block formatting context
+    // Modern way to create block formatting context
     ".clear-fix": {
       "display": "flow-root",
-    }
+    },
+
+
+
+    // Extens tailwindcss default utility classes
+    ".basis-max": {
+      "flex-basis": "max-content",
+    },
+    ".basis-min": {
+      "flex-basis": "min-content",
+    },
+    ".basis-fit": {
+      "flex-basis": "fit-content",
+    },
+
+    // In the default config, `outline` represents `outline-style: solid`, but `border` represents `border-width: 1px`, which is confusing
+    '.outline-solid': {
+      'outline-style': 'solid',
+    },
+
+    ".border-t-solid": {
+      "border-top-style": "solid",
+    },
+    ".border-r-solid": {
+      "border-right-style": "solid",
+    },
+    ".border-b-solid": {
+      "border-bottom-style": "solid",
+    },
+    ".border-l-solid": {
+      "border-left-style": "solid",
+    },
+    ".boder-x-solid": {
+      "border-left-style": "solid",
+      "border-right-style": "solid",
+    },
+    ".boder-y-solid": {
+      "border-top-style": "solid",
+      "border-bottom-style": "solid",
+    },
+
+    '.h-stretch': {
+      'height': 'stretch'
+    },
+    '.w-stretch': {
+      'width': 'stretch'
+    },
+    '.size-stretch': {
+      'width': 'stretch',
+      'height': 'stretch'
+    },
   })
 
   matchUtilities({
-    "text-stroke": (value, { modifier }) => ({
+    "text-stroke": (value: string, { modifier }) => ({
       "-webkit-text-stroke-width": value,
     })
   }, {
@@ -375,17 +399,17 @@ export function defineConfig<T extends Config>(config: T) {
 }
 
 // tailwindcss/lib/util/flattenColorPalette.js
-function flattenColorPalette(colors: unknown) {
+function flattenColorPalette(colors: Record<string, unknown>): Record<string, string> {
   return Object.assign(
     {},
     ...Object.entries(colors ?? {}).flatMap(([color, values]) => {
       return typeof values === 'object'
-        ? Object.entries(flattenColorPalette(values)).map(([number, hex]) => ({
+        ? Object.entries(flattenColorPalette(values as Record<string, unknown>)).map(([number, hex]) => ({
           [color + (number === 'DEFAULT' ? '' : `-${number}`)]: hex,
         }))
-        : [{ [`${color}`]: values }]
+        : [{ [color]: values }]
     })
-  )
+  ) as Record<string, string>
 }
 
 function svgToDataUri(svg: string) {

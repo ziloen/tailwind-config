@@ -20,7 +20,9 @@
     "access": "public"
   },
   "devDependencies": {
+    "@ziloen/eslint-config": "^0.1.44",
     "bumpp": "^9.5.2",
+    "eslint": "^9.9.1",
     "tsup": "^8.2.4",
     "typescript": "^5.5.4"
   },
