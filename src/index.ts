@@ -1,8 +1,8 @@
 /* eslint-disable @typescript-eslint/unbound-method */
-import type { Config, PluginAPI, PresetsConfig } from "tailwindcss/types/config"
-import { containerQueries } from "./containerQueries"
+import type { Config, PluginAPI, PresetsConfig } from 'tailwindcss/types/config'
+import { containerQueries } from './containerQueries'
 
-export { containerQueries } from "./containerQueries"
+export { containerQueries } from './containerQueries'
 
 
 export function pluginCreator({
@@ -85,17 +85,17 @@ export function pluginCreator({
       'justify-content': 'safe end',
     },
 
-    ".resizable": {
-      "resize": "both",
-      "overflow": "hidden",
+    '.resizable': {
+      resize: 'both',
+      overflow: 'hidden',
     },
-    ".resizable-x": {
-      "resize": "horizontal",
-      "overflow": "hidden"
+    '.resizable-x': {
+      resize: 'horizontal',
+      overflow: 'hidden'
     },
-    ".resizable-y": {
-      "resize": "vertical",
-      "overflow": "hidden"
+    '.resizable-y': {
+      resize: 'vertical',
+      overflow: 'hidden'
     },
 
     // Writing mode
@@ -105,32 +105,32 @@ export function pluginCreator({
     '.writing-vertical-lr': {
       'writing-mode': 'vertical-lr',
     },
-    ".writing-horizontal-tb": {
-      "writing-mode": "horizontal-tb",
+    '.writing-horizontal-tb': {
+      'writing-mode': 'horizontal-tb',
     },
-    ".writing-sideways-rl": {
-      "writing-mode": "sideways-rl",
+    '.writing-sideways-rl': {
+      'writing-mode': 'sideways-rl',
     },
-    ".writing-sideways-lr": {
-      "writing-mode": "sideways-lr",
+    '.writing-sideways-lr': {
+      'writing-mode': 'sideways-lr',
     },
 
     // Modern way to create block formatting context
-    ".clear-fix": {
-      "display": "flow-root",
+    '.clear-fix': {
+      display: 'flow-root',
     },
 
 
 
     // Extens tailwindcss default utility classes
-    ".basis-max": {
-      "flex-basis": "max-content",
+    '.basis-max': {
+      'flex-basis': 'max-content',
     },
-    ".basis-min": {
-      "flex-basis": "min-content",
+    '.basis-min': {
+      'flex-basis': 'min-content',
     },
-    ".basis-fit": {
-      "flex-basis": "fit-content",
+    '.basis-fit': {
+      'flex-basis': 'fit-content',
     },
 
     // In the default config, `outline` represents `outline-style: solid`, but `border` represents `border-width: 1px`, which is confusing
@@ -138,51 +138,51 @@ export function pluginCreator({
       'outline-style': 'solid',
     },
 
-    ".border-t-solid": {
-      "border-top-style": "solid",
+    '.border-t-solid': {
+      'border-top-style': 'solid',
     },
-    ".border-r-solid": {
-      "border-right-style": "solid",
+    '.border-r-solid': {
+      'border-right-style': 'solid',
     },
-    ".border-b-solid": {
-      "border-bottom-style": "solid",
+    '.border-b-solid': {
+      'border-bottom-style': 'solid',
     },
-    ".border-l-solid": {
-      "border-left-style": "solid",
+    '.border-l-solid': {
+      'border-left-style': 'solid',
     },
-    ".boder-x-solid": {
-      "border-left-style": "solid",
-      "border-right-style": "solid",
+    '.boder-x-solid': {
+      'border-left-style': 'solid',
+      'border-right-style': 'solid',
     },
-    ".boder-y-solid": {
-      "border-top-style": "solid",
-      "border-bottom-style": "solid",
+    '.boder-y-solid': {
+      'border-top-style': 'solid',
+      'border-bottom-style': 'solid',
     },
 
     '.h-stretch': {
-      'height': 'stretch'
+      height: 'stretch'
     },
     '.w-stretch': {
-      'width': 'stretch'
+      width: 'stretch'
     },
     '.size-stretch': {
-      'width': 'stretch',
-      'height': 'stretch'
+      width: 'stretch',
+      height: 'stretch'
     },
   })
 
   matchUtilities({
-    "text-stroke": (value: string, { modifier }) => ({
-      "-webkit-text-stroke-width": value,
+    'text-stroke': (value: string, { modifier }) => ({
+      '-webkit-text-stroke-width': value,
     })
   }, {
-    type: "length",
-    values: theme("borderWidth")
+    type: 'length',
+    values: theme('borderWidth')
   })
 
   // FIXME: No color decorator
   matchUtilities({
-    "text-stroke": (value, { modifier }) => {
+    'text-stroke': (value, { modifier }) => {
       // return withAlphaVariable({
       //   color: value,
       //   property: '-webkit-text-stroke-color',
@@ -190,12 +190,12 @@ export function pluginCreator({
       // })
 
       return {
-        "-webkit-text-stroke-color": value,
+        '-webkit-text-stroke-color': value,
       }
     }
   }, {
-    type: ["color", "any"],
-    values: flattenColorPalette(theme("colors")),
+    type: ['color', 'any'],
+    values: flattenColorPalette(theme('colors')),
   })
 
 
@@ -238,126 +238,126 @@ export const preset = {
       // Custom colors
       // https://mozilla.design/firefox/#color
       green: {
-        '50': '#e3fff3',
-        '100': '#D0FFED',
-        '200': '#B3FFE3',
-        '300': '#88FFD1',
-        '400': '#53FEBE',
-        '500': '#3fe1b0',
-        '600': '#2BC4A2',
-        '700': '#068989',
-        '800': '#005E5D',
-        '900': '#083F37',
+        50: '#e3fff3',
+        100: '#D0FFED',
+        200: '#B3FFE3',
+        300: '#88FFD1',
+        400: '#53FEBE',
+        500: '#3fe1b0',
+        600: '#2BC4A2',
+        700: '#068989',
+        800: '#005E5D',
+        900: '#083F37',
       },
       blue: {
-        '50': '#ACF1FF',
-        '100': '#80EAFF',
-        '200': '#00DDFF',
-        '300': '#00B3F5',
-        '400': '#0290EE',
-        '500': '#0060E0',
-        '600': '#0250BC',
-        '700': '#063F96',
-        '800': '#073072',
-        '900': '#0A214D',
+        50: '#ACF1FF',
+        100: '#80EAFF',
+        200: '#00DDFF',
+        300: '#00B3F5',
+        400: '#0290EE',
+        500: '#0060E0',
+        600: '#0250BC',
+        700: '#063F96',
+        800: '#073072',
+        900: '#0A214D',
       },
       violet: {
-        '50': '#E6DFFF',
-        '100': '#D9BFFF',
-        '200': '#CC9EFF',
-        '300': '#C588FF',
-        '400': '#AC71FF',
-        '500': '#9059FF',
-        '600': '#7543E3',
-        '700': '#582ACB',
-        '800': '#46278E',
-        '900': '#321C64',
+        50: '#E6DFFF',
+        100: '#D9BFFF',
+        200: '#CC9EFF',
+        300: '#C588FF',
+        400: '#AC71FF',
+        500: '#9059FF',
+        600: '#7543E3',
+        700: '#582ACB',
+        800: '#46278E',
+        900: '#321C64',
       },
       purple: {
-        '50': '#f7e3ff',
-        '100': '#F6B9FF',
-        '200': '#F690FF',
-        '300': '#F564FF',
-        '400': '#D64CF1',
-        '500': '#B933E1',
-        '600': '#962BB9',
-        '700': '#712290',
-        '800': '#4D1A69',
-        '900': '#2B1141',
+        50: '#f7e3ff',
+        100: '#F6B9FF',
+        200: '#F690FF',
+        300: '#F564FF',
+        400: '#D64CF1',
+        500: '#B933E1',
+        600: '#962BB9',
+        700: '#712290',
+        800: '#4D1A69',
+        900: '#2B1141',
       },
       pink: {
-        '50': '#FFDFF0',
-        '100': '#FFB4DB',
-        '200': '#FF8AC6',
-        '300': '#FF6BBB',
-        '400': '#FE4AA3',
-        '500': '#FF2A8A',
-        '600': '#E11586',
-        '700': '#C60184',
-        '800': '#7F165B',
-        '900': '#50134C',
+        50: '#FFDFF0',
+        100: '#FFB4DB',
+        200: '#FF8AC6',
+        300: '#FF6BBB',
+        400: '#FE4AA3',
+        500: '#FF2A8A',
+        600: '#E11586',
+        700: '#C60184',
+        800: '#7F165B',
+        900: '#50134C',
       },
       red: {
-        '50': '#FFE0E8',
-        '100': '#FFBEC6',
-        '200': '#FF9AA2',
-        '300': '#FF848C',
-        '400': '#FF6A75',
-        '500': '#FF505F',
-        '600': '#E02950',
-        '700': '#C50143',
-        '800': '#800220',
-        '900': '#440307',
+        50: '#FFE0E8',
+        100: '#FFBEC6',
+        200: '#FF9AA2',
+        300: '#FF848C',
+        400: '#FF6A75',
+        500: '#FF505F',
+        600: '#E02950',
+        700: '#C50143',
+        800: '#800220',
+        900: '#440307',
       },
       orange: {
-        '50': '#FFF4DE',
-        '100': '#FFD6B2',
-        '200': '#FFB588',
-        '300': '#FEA365',
-        '400': '#FE8A4F',
-        '500': '#FF7139',
-        '600': '#E25821',
-        '700': '#CD3D00',
-        '800': '#9D280C',
-        '900': '#7B1604',
+        50: '#FFF4DE',
+        100: '#FFD6B2',
+        200: '#FFB588',
+        300: '#FEA365',
+        400: '#FE8A4F',
+        500: '#FF7139',
+        600: '#E25821',
+        700: '#CD3D00',
+        800: '#9D280C',
+        900: '#7B1604',
       },
       yellow: {
-        '50': '#FFFFCD',
-        '100': '#FEFF95',
-        '200': '#FFEA7F',
-        '300': '#FFD567',
-        '400': '#FFBD4F',
-        '500': '#FFA537',
-        '600': '#E17F2E',
-        '700': '#C45A28',
-        '800': '#A7341F',
-        '900': '#960F18',
+        50: '#FFFFCD',
+        100: '#FEFF95',
+        200: '#FFEA7F',
+        300: '#FFD567',
+        400: '#FFBD4F',
+        500: '#FFA537',
+        600: '#E17F2E',
+        700: '#C45A28',
+        800: '#A7341F',
+        900: '#960F18',
       },
 
       // https://protocol.mozilla.org/docs/fundamentals/color
-      "light-gray": {
-        50: "#ffffff",
-        100: "#f9f9fb",
-        200: "#f0f0f4",
-        300: "#e0e0e6",
-        400: "#cfcfd8",
-        500: "#bfbfc9",
-        600: "#afafba",
-        700: "#9f9fad",
-        800: "#8f8f9e",
-        900: "#80808f",
+      'light-gray': {
+        50: '#ffffff',
+        100: '#f9f9fb',
+        200: '#f0f0f4',
+        300: '#e0e0e6',
+        400: '#cfcfd8',
+        500: '#bfbfc9',
+        600: '#afafba',
+        700: '#9f9fad',
+        800: '#8f8f9e',
+        900: '#80808f',
       },
-      "dark-gray": {
-        50: "#5b5b66",
-        100: "#52525e",
-        200: "#4a4a55",
-        300: "#42414d",
-        400: "#3a3944",
-        500: "#32313c",
-        600: "#2b2a33",
-        700: "#23222b",
-        800: "#1c1b22",
-        900: "#15141a",
+      'dark-gray': {
+        50: '#5b5b66',
+        100: '#52525e',
+        200: '#4a4a55',
+        300: '#42414d',
+        400: '#3a3944',
+        500: '#32313c',
+        600: '#2b2a33',
+        700: '#23222b',
+        800: '#1c1b22',
+        900: '#15141a',
       }
     },
 
@@ -413,7 +413,7 @@ function flattenColorPalette(colors: Record<string, unknown>): Record<string, st
 }
 
 function svgToDataUri(svg: string) {
-  return "data:image/svg+xml," + encodeURIComponent(collapseWhitespace(svg))
+  return `data:image/svg+xml,${encodeURIComponent(collapseWhitespace(svg))}`
 }
 
 function collapseWhitespace(str: string) {
