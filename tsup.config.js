@@ -1,15 +1,15 @@
-import { defineConfig } from "tsup"
+import { defineConfig } from 'tsup'
 
 export default defineConfig({
   entry: [
-    "src/index.ts",
+    'src/index.ts',
   ],
-  target: "esnext",
-  outDir: "dist",
+  target: 'esnext',
+  outDir: 'dist',
   // minify: true,
   dts: true,
-  format: ["esm"],
-  platform: "node",
+  format: ['esm'],
+  platform: 'node',
   skipNodeModulesBundle: true,
   treeshake: true,
   sourcemap: false,

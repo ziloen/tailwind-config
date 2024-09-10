@@ -223,6 +223,10 @@ export function pluginCreator({
   addVariant('webkit-scrollbar-track-piece', '&::-webkit-scrollbar-track-piece')
   addVariant('webkit-scrollbar-button', '&::-webkit-scrollbar-button')
   // addVariant('display-mode-fullscreen', '@media (display-mode: fullscreen)')
+
+  // combine multiple variants
+  addVariant('hover-focus', ['&:hover', '&:focus'])
+  addVariant('hover-active', ['&:hover', '&:active'])
 }
 
 export const preset = {

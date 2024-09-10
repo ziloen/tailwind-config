@@ -20,11 +20,11 @@
     "access": "public"
   },
   "devDependencies": {
-    "@ziloen/eslint-config": "^0.1.44",
+    "@ziloen/eslint-config": "^0.1.47",
     "bumpp": "^9.5.2",
-    "eslint": "^9.9.1",
+    "eslint": "^9.10.0",
     "tsup": "^8.2.4",
-    "typescript": "^5.5.4"
+    "typescript": "^5.6.2"
   },
   "dependencies": {
     "tailwindcss": "^3.4.10"
