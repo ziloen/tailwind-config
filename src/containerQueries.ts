@@ -1,4 +1,4 @@
-import type { Config, PluginCreator } from "tailwindcss/types/config"
+import type { Config, PluginCreator } from 'tailwindcss/types/config'
 
 function parseValue(value: string) {
   const [, operator, numericValue] = value.match(/^([><]=?)?((?:\d+\.\d+|\d+|\.\d+)\D+)/) ?? []
@@ -8,7 +8,8 @@ function parseValue(value: string) {
 }
 
 export const containerQueries: { handler: PluginCreator; config?: Partial<Config> } = {
-  handler: function containerQueries({ matchUtilities, matchVariant, theme }) {
+  // eslint-disable-next-line @typescript-eslint/unbound-method
+  handler: ({ matchUtilities, matchVariant, theme }) => {
     const values: Record<string, string> = theme('containers') ?? {}
 
     matchUtilities(
@@ -31,8 +32,8 @@ export const containerQueries: { handler: PluginCreator; config?: Partial<Config
 
     matchVariant(
       '@',
-      (value = '', { modifier }) => {
-        const [operator = ">=", parsed] = parseValue(value)
+      (value, { modifier }) => {
+        const [operator = '>=', parsed] = parseValue(value || '') ?? []
 
         return parsed !== null ? `@container ${modifier ?? ''} (width ${operator} ${parsed})` : []
       },
@@ -47,8 +48,8 @@ export const containerQueries: { handler: PluginCreator; config?: Partial<Config
           // Sort values themselves regardless of unit
           if (a - z !== 0) return a - z
 
-          let aLabel = aVariant.modifier ?? ''
-          let zLabel = zVariant.modifier ?? ''
+          const aLabel = aVariant.modifier ?? ''
+          const zLabel = zVariant.modifier ?? ''
 
           // Explicitly move empty labels to the end
           if (aLabel === '' && zLabel !== '') {
