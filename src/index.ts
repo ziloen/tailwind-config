@@ -49,9 +49,26 @@ export function pluginCreator({
         display: 'none',
       },
     },
+    '.scrollbar-hidden': {
+      'scrollbar-width': 'none',
+
+      '&::-webkit-scrollbar': {
+        display: 'none',
+      },
+    },
     '.scrollbar-thin': {
       'scrollbar-width': 'thin',
     },
+    '.scrollbar-gutter-auto': {
+      'scrollbar-gutter': 'auto'
+    },
+    '.scrollbar-gutter-stable': {
+      'scrollbar-gutter': 'stable'
+    },
+    '.scrollbar-gutter-both': {
+      'scrollbar-gutter': 'stable both-edges'
+    },
+
 
     // Leading trim simulate
     // text-box-trim: both;
