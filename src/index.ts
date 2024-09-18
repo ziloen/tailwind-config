@@ -394,6 +394,12 @@ export const preset = {
       3: '3',
       max: '2147483647',
     },
+
+    extend: {
+      supports: {
+        'scrollbar-gutter': 'scrollbar-gutter: stable',
+      },
+    }
   },
 
   experimental: {
