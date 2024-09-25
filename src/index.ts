@@ -415,7 +415,7 @@ export const preset = {
   plugins: [pluginCreator, containerQueries],
 
   // https://tailwindcss.com/docs/theme#configuration-reference
-  // https://github.com/tailwindlabs/tailwindcss/blob/master/src/corePlugins.js
+  // https://github.com/tailwindlabs/tailwindcss/blob/main/src/corePlugins.js
   corePlugins: {},
 } satisfies PresetsConfig
 
