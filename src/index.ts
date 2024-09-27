@@ -132,6 +132,14 @@ export function pluginCreator({
       'writing-mode': 'sideways-lr',
     },
 
+    // overflow-anchor
+    '.overflow-anchor-none': {
+      'overflow-anchor': 'none',
+    },
+    '.overflow-anchor-auto': {
+      'overflow-anchor': 'auto',
+    },
+
     // Modern way to create block formatting context
     '.clear-fix': {
       display: 'flow-root',
@@ -139,7 +147,7 @@ export function pluginCreator({
 
 
 
-    // Extens tailwindcss default utility classes
+    // Extends tailwindcss default utility classes
     '.basis-max': {
       'flex-basis': 'max-content',
     },
