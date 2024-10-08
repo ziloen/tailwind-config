@@ -240,6 +240,24 @@ export function pluginCreator({
   })
 
 
+  // TODO: use v4 syntax
+  // https://github.com/w3c/csswg-drafts/issues/1544
+  matchUtilities({
+    'translate-inline-flow': (value: string, { modifier }) => ({
+      '--tw-translate-x': value,
+      transform: 'translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))',
+
+      "&:where([dir='rtl'], [dir='rtl'] *)": {
+        '--tw-translate-x': `calc(${value} * -1)`,
+      }
+    }),
+  }, {
+    type: 'length',
+    supportsNegativeValues: true,
+    values: theme('translate')
+  })
+
+
 
   // matchUtilities(
   //   {
