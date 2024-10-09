@@ -14,7 +14,7 @@ export function pluginCreator({
   matchUtilities,
   matchVariant,
   theme,
-}: PluginAPI) {
+}: PluginAPI): void {
   // TODO: v4 use `staticUtility`
   addUtilities({
     // Flex
@@ -289,7 +289,7 @@ export function pluginCreator({
   addVariant('hover-active', ['&:hover', '&:active'])
 }
 
-export const preset = {
+export const preset: PresetsConfig = {
   theme: {
     colors: {
       // Default colors
@@ -460,11 +460,11 @@ export const preset = {
   // https://tailwindcss.com/docs/theme#configuration-reference
   // https://github.com/tailwindlabs/tailwindcss/blob/main/src/corePlugins.js
   corePlugins: {},
-} satisfies PresetsConfig
+}
 
 export type PresetTheme = typeof preset.theme
 
-export function defineConfig<T extends Config>(config: T) {
+export function defineConfig<T extends Config>(config: T): T {
   return config
 }
 

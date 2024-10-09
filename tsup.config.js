@@ -6,7 +6,7 @@ export default defineConfig({
   ],
   target: 'esnext',
   outDir: 'dist',
-  // minify: true,
+  minify: false,
   dts: true,
   format: ['esm'],
   platform: 'node',

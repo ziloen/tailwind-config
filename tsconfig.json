@@ -4,6 +4,8 @@
     "moduleResolution": "Bundler",
     "target": "ESNext",
     "stripInternal": true,
+    "declaration": true,
+    "isolatedDeclarations": true,
     "strict": true,
     "allowSyntheticDefaultImports": true,
     "lib": [
