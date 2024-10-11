@@ -1,7 +1,7 @@
 import type { Config, PluginCreator } from 'tailwindcss/types/config'
 
 function parseValue(value: string) {
-  const [, operator, numericValue] = value.match(/^([><]=?)?((?:\d+\.\d+|\d+|\.\d+)\D+)/) ?? []
+  const [, operator, numericValue] = value.match(/^([><]=?)?((?:\d+\.\d+|\d+|\.\d+)[a-zA-Z]+)$/) ?? []
   if (!numericValue) return null
 
   return [operator, numericValue]
@@ -30,12 +30,15 @@ export const containerQueries: { handler: PluginCreator; config?: Partial<Config
       }
     )
 
+    // TODO: Add support for multiple conditions e.g. `@[>=900px][<1200px]`
     matchVariant(
       '@',
       (value, { modifier }) => {
         const [operator = '>=', parsed] = parseValue(value || '') ?? []
 
-        return parsed !== null ? `@container ${modifier ?? ''} (width ${operator} ${parsed})` : []
+        if (parsed) return []
+
+        return `@container ${modifier ?? ''} (width ${operator} ${parsed})`
       },
       {
         values,
