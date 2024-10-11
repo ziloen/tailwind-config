@@ -36,7 +36,7 @@ export const containerQueries: { handler: PluginCreator; config?: Partial<Config
       (value, { modifier }) => {
         const [operator = '>=', parsed] = parseValue(value || '') ?? []
 
-        if (parsed) return []
+        if (!parsed) return []
 
         return `@container ${modifier ?? ''} (width ${operator} ${parsed})`
       },
