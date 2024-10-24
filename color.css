@@ -1,0 +1,121 @@
+:root {
+  /* Default colors */
+  --color-inherit: inherit;
+  --color-current: currentColor;
+  --color-transparent: transparent;
+  --color-black: #000;
+  --color-white: #fff;
+
+  /* Custom colors */
+  /* https://mozilla.design/firefox/#color */
+  --color-green-50: #e3fff3;
+  --color-green-100: #d0ffed;
+  --color-green-200: #b3ffe3;
+  --color-green-300: #88ffd1;
+  --color-green-400: #53febe;
+  --color-green-500: #3fe1b0;
+  --color-green-600: #2bc4a2;
+  --color-green-700: #068989;
+  --color-green-800: #005e5d;
+  --color-green-900: #083f37;
+
+  --color-blue-50: #acf1ff;
+  --color-blue-100: #80eaff;
+  --color-blue-200: #00ddff;
+  --color-blue-300: #00b3f5;
+  --color-blue-400: #0290ee;
+  --color-blue-500: #0060e0;
+  --color-blue-600: #0250bc;
+  --color-blue-700: #063f96;
+  --color-blue-800: #073072;
+  --color-blue-900: #0a214d;
+
+  --color-violet-50: #e6dfff;
+  --color-violet-100: #d9bfff;
+  --color-violet-200: #cc9eff;
+  --color-violet-300: #c588ff;
+  --color-violet-400: #ac71ff;
+  --color-violet-500: #9059ff;
+  --color-violet-600: #7543e3;
+  --color-violet-700: #582acb;
+  --color-violet-800: #46278e;
+  --color-violet-900: #321c64;
+
+  --color-purple-50: #f7e3ff;
+  --color-purple-100: #f6b9ff;
+  --color-purple-200: #f690ff;
+  --color-purple-300: #f564ff;
+  --color-purple-400: #d64cf1;
+  --color-purple-500: #b933e1;
+  --color-purple-600: #962bb9;
+  --color-purple-700: #712290;
+  --color-purple-800: #4d1a69;
+  --color-purple-900: #2b1141;
+
+  --color-pink-50: #ffdff0;
+  --color-pink-100: #ffb4db;
+  --color-pink-200: #ff8ac6;
+  --color-pink-300: #ff6bbb;
+  --color-pink-400: #fe4aa3;
+  --color-pink-500: #ff2a8a;
+  --color-pink-600: #e11586;
+  --color-pink-700: #c60184;
+  --color-pink-800: #7f165b;
+  --color-pink-900: #50134c;
+
+  --color-red-50: #ffe0e8;
+  --color-red-100: #ffbec6;
+  --color-red-200: #ff9aa2;
+  --color-red-300: #ff848c;
+  --color-red-400: #ff6a75;
+  --color-red-500: #ff505f;
+  --color-red-600: #e02950;
+  --color-red-700: #c50143;
+  --color-red-800: #800220;
+  --color-red-900: #440307;
+
+  --color-orange-50: #fff4de;
+  --color-orange-100: #ffd6b2;
+  --color-orange-200: #ffb588;
+  --color-orange-300: #fea365;
+  --color-orange-400: #fe8a4f;
+  --color-orange-500: #ff7139;
+  --color-orange-600: #e25821;
+  --color-orange-700: #cd3d00;
+  --color-orange-800: #9d280c;
+  --color-orange-900: #7b1604;
+
+  --color-yellow-50: #ffffcd;
+  --color-yellow-100: #feff95;
+  --color-yellow-200: #ffea7f;
+  --color-yellow-300: #ffd567;
+  --color-yellow-400: #ffbd4f;
+  --color-yellow-500: #ffa537;
+  --color-yellow-600: #e17f2e;
+  --color-yellow-700: #c45a28;
+  --color-yellow-800: #a7341f;
+  --color-yellow-900: #960f18;
+
+  /* https://protocol.mozilla.org/docs/fundamentals/color */
+  --color-light-gray-50: #ffffff;
+  --color-light-gray-100: #f9f9fb;
+  --color-light-gray-200: #f0f0f4;
+  --color-light-gray-300: #e0e0e6;
+  --color-light-gray-400: #cfcfd8;
+  --color-light-gray-500: #bfbfc9;
+  --color-light-gray-600: #afafba;
+  --color-light-gray-700: #9f9fad;
+  --color-light-gray-800: #8f8f9e;
+  --color-light-gray-900: #80808f;
+
+  --color-dark-gray-50: #5b5b66;
+  --color-dark-gray-100: #52525e;
+  --color-dark-gray-200: #4a4a55;
+  --color-dark-gray-300: #42414d;
+  --color-dark-gray-400: #3a3944;
+  --color-dark-gray-500: #32313c;
+  --color-dark-gray-600: #2b2a33;
+  --color-dark-gray-700: #23222b;
+  --color-dark-gray-800: #1c1b22;
+  --color-dark-gray-900: #15141a;
+}

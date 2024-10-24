@@ -19,3 +19,13 @@
 ```
 
 ### linear-gradient
+
+### Abbreviations
+
+`flex-shrink-0` = `shrink-0`
+`flex-shrink` = `shrink`
+`flex-grow-0` = `grow-0`  
+`flex-grow` = `grow`
+`[&>*]:bg-red` = `*:bg-red`
+`border-[1px]` = `border`
+`bg-[var(--color)]` = `bg-[--color]`
