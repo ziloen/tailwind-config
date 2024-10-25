@@ -249,7 +249,7 @@ export function pluginCreator({
   })
 
   matchUtilities({
-    'text-stroke': (value: string, { modifier }) => ({
+    'text-stroke': (value: string) => ({
       '-webkit-text-stroke-width': value,
     })
   }, {
@@ -259,7 +259,7 @@ export function pluginCreator({
 
   // FIXME: No color decorator
   matchUtilities({
-    'text-stroke': (value, { modifier }) => {
+    'text-stroke': (value) => {
       // return withAlphaVariable({
       //   color: value,
       //   property: '-webkit-text-stroke-color',
@@ -279,7 +279,7 @@ export function pluginCreator({
   // TODO: use v4 syntax
   // https://github.com/w3c/csswg-drafts/issues/1544
   matchUtilities({
-    'translate-inline-flow': (value: string, { modifier }) => ({
+    'translate-inline-flow': (value: string) => ({
       '@defaults transform': {},
       '--tw-translate-x': value,
       transform: 'translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))',
