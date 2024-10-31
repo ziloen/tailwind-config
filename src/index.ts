@@ -190,6 +190,17 @@ export function pluginCreator({
       'border-inline-end-style': 'solid',
     },
 
+    '.divide-x-solid': {
+      '& > :not([hidden]) ~ :not([hidden])': {
+        'border-inline-style': 'solid'
+      }
+    },
+    '.divide-y-solid': {
+      '& > :not([hidden]) ~ :not([hidden])': {
+        'border-block-style': 'solid'
+      }
+    },
+
     '.border-1': {
       'border-width': '1px',
     },
@@ -478,6 +489,9 @@ export const preset: PresetsConfig = {
       supports: {
         'scrollbar-gutter': 'scrollbar-gutter: stable',
       },
+      rotate: {
+        135: '135deg',
+      }
     }
   },
 
