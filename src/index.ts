@@ -140,6 +140,23 @@ export function pluginCreator({
       'overflow-anchor': 'auto',
     },
 
+    // line-break
+    '.line-break-normal': {
+      'line-break': 'normal',
+    },
+    '.line-break-auto': {
+      'line-break': 'auto',
+    },
+    '.line-break-loose': {
+      'line-break': 'loose',
+    },
+    '.line-break-strict': {
+      'line-break': 'strict',
+    },
+    '.line-break-anywhere': {
+      'line-break': 'anywhere',
+    },
+
     // Modern way to create block formatting context
     '.clear-fix': {
       display: 'flow-root',
