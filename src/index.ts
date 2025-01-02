@@ -15,7 +15,6 @@ export function pluginCreator({
   matchVariant,
   theme,
 }: PluginAPI): void {
-  // TODO: v4 use `staticUtility`
   addUtilities({
     // Flex
     '.flex-center': {
@@ -27,18 +26,6 @@ export function pluginCreator({
       display: 'inline-flex',
       'justify-content': 'center',
       'align-items': 'center',
-    },
-    '.flex-justify': {
-      display: 'flex',
-      'justify-content': 'center',
-    },
-    '.flex-align': {
-      display: 'flex',
-      'align-items': 'center',
-    },
-    '.flex-between': {
-      display: 'flex',
-      'justify-content': 'space-between',
     },
 
     // Scrollbar
@@ -176,6 +163,7 @@ export function pluginCreator({
     },
 
     // In the default config, `outline` represents `outline-style: solid`, but `border` represents `border-width: 1px`, which is confusing
+    // TODO: remove in v4
     '.outline-solid': {
       'outline-style': 'solid',
     },
@@ -489,6 +477,72 @@ export const preset: PresetsConfig = {
       }
     },
 
+    spacing: {
+      px: '1px',
+      0: '0px',
+      0.5: '2px',
+      1: '4px',
+      1.5: '6px',
+      2: '8px',
+      2.5: '10px',
+      3: '12px',
+      3.5: '14px',
+      4: '16px',
+      5: '20px',
+      6: '24px',
+      7: '28px',
+      8: '32px',
+      9: '36px',
+      10: '40px',
+      11: '44px',
+      12: '48px',
+      14: '56px',
+      16: '64px',
+      20: '80px',
+      24: '96px',
+      28: '112px',
+      32: '128px',
+      36: '144px',
+      40: '160px',
+      44: '176px',
+      48: '192px',
+      52: '208px',
+      56: '224px',
+      60: '240px',
+      64: '256px',
+      72: '288px',
+      80: '320px',
+      96: '384px',
+    },
+
+    borderRadius: {
+      none: '0px',
+      sm: '2px',
+      DEFAULT: '4px',
+      md: '6px',
+      lg: '8px',
+      xl: '12px',
+      '2xl': '16px',
+      '3xl': '24px',
+      full: '9999px',
+    },
+
+    fontSize: {
+      xs: '12px',
+      sm: '14px',
+      base: '16px',
+      lg: '18px',
+      xl: '20px',
+      '2xl': '24px',
+      '3xl': '30px',
+      '4xl': '36px',
+      '5xl': '48px',
+      '6xl': '60px',
+      '7xl': '72px',
+      '8xl': '96px',
+      '9xl': '128px',
+    },
+
     lineHeight: {
       none: '1',
     },
@@ -542,8 +596,8 @@ function flattenColorPalette(colors: Record<string, unknown>): Record<string, st
     ...Object.entries(colors ?? {}).flatMap(([color, values]) => {
       return typeof values === 'object'
         ? Object.entries(flattenColorPalette(values as Record<string, unknown>)).map(([number, hex]) => ({
-          [color + (number === 'DEFAULT' ? '' : `-${number}`)]: hex,
-        }))
+            [color + (number === 'DEFAULT' ? '' : `-${number}`)]: hex,
+          }))
         : [{ [color]: values }]
     })
   ) as Record<string, string>

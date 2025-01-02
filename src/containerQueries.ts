@@ -31,6 +31,7 @@ export const containerQueries: { handler: PluginCreator; config?: Partial<Config
     )
 
     // TODO: Add support for multiple conditions e.g. `@[>=900px<1200px]`
+    // TODO: Add support for calc() e.g. `@[>=calc(900px+1rem)]`
     matchVariant(
       '@',
       (value, { modifier }) => {
