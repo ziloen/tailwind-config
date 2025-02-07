@@ -33,14 +33,15 @@
     "access": "public"
   },
   "devDependencies": {
-    "@ziloen/eslint-config": "^0.1.56",
-    "bumpp": "^9.9.2",
-    "eslint": "^9.17.0",
-    "tsdown": "^0.5.3",
-    "tsup": "^8.3.5",
-    "typescript": "^5.7.2"
+    "@types/node": "^22.13.1",
+    "@ziloen/eslint-config": "^0.1.58",
+    "bumpp": "^10.0.2",
+    "eslint": "^9.19.0",
+    "tsdown": "^0.5.8",
+    "tsup": "^8.3.6",
+    "typescript": "^5.7.3"
   },
   "dependencies": {
-    "tailwindcss": "^3.4.17"
+    "tailwindcss": "^4.0.4"
   }
 }

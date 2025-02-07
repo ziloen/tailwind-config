@@ -1,4 +1,6 @@
-import type { Config, PluginCreator } from 'tailwindcss/types/config'
+/* eslint-disable @typescript-eslint/no-unsafe-assignment */
+/* eslint-disable @typescript-eslint/unbound-method */
+import type { PluginWithConfig } from './types'
 
 function parseValue(value: string) {
   const [, operator, numericValue] = value.match(/^([><]=?)?((?:\d+\.\d+|\d+|\.\d+)[a-zA-Z]+)$/) ?? []
@@ -7,28 +9,9 @@ function parseValue(value: string) {
   return [operator, numericValue]
 }
 
-export const containerQueries: { handler: PluginCreator; config?: Partial<Config> } = {
-  // eslint-disable-next-line @typescript-eslint/unbound-method
+export const containerQueries: PluginWithConfig = {
   handler: ({ matchUtilities, matchVariant, theme }) => {
     const values: Record<string, string> = theme('containers') ?? {}
-
-    matchUtilities(
-      {
-        '@container': (value, { modifier }) => {
-          return {
-            'container-type': value,
-            'container-name': modifier,
-          }
-        },
-      },
-      {
-        values: {
-          DEFAULT: 'inline-size',
-          normal: 'normal',
-        },
-        modifiers: 'any',
-      }
-    )
 
     // TODO: Add support for multiple conditions e.g. `@[>=900px<1200px]`
     // TODO: Add support for calc() e.g. `@[>=calc(900px+1rem)]`

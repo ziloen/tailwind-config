@@ -1,6 +1,8 @@
 /* eslint-disable @typescript-eslint/unbound-method */
-import type { Config, PluginAPI, PresetsConfig } from 'tailwindcss/types/config'
+import type { Config } from 'tailwindcss'
 import { containerQueries } from './containerQueries'
+import type { default as createPlugin } from 'tailwindcss/plugin'
+import type { PluginAPI } from './types'
 
 export { containerQueries } from './containerQueries'
 
@@ -270,7 +272,7 @@ export function pluginCreator({
     })
   }, {
     type: 'length',
-    values: theme('borderWidth')
+    values: theme('borderWidth') as Record<string, string>
   })
 
   // FIXME: No color decorator
@@ -288,7 +290,7 @@ export function pluginCreator({
     }
   }, {
     type: ['color', 'any'],
-    values: flattenColorPalette(theme('colors')),
+    values: flattenColorPalette(theme('colors') as Record<string, unknown>),
   })
 
 
@@ -307,7 +309,7 @@ export function pluginCreator({
   }, {
     type: 'length',
     supportsNegativeValues: true,
-    values: theme('translate')
+    values: theme('translate') as Record<string, string>
   })
 
 
@@ -341,7 +343,7 @@ export function pluginCreator({
   addVariant('hover-active', ['&:hover', '&:active'])
 }
 
-export const preset: PresetsConfig = {
+export const preset: Config = {
   theme: {
     colors: {
       // Default colors
@@ -566,12 +568,14 @@ export const preset: PresetsConfig = {
     }
   },
 
-  experimental: {
-    // Remove unused global css variables, e.g. --tw-translate-x: 0;
-    optimizeUniversalDefaults: true,
 
-    // matchVariant: true,
-  },
+
+  // experimental: {
+  //   // Remove unused global css variables, e.g. --tw-translate-x: 0;
+  //   optimizeUniversalDefaults: true,
+
+  //   // matchVariant: true,
+  // },
 
   /**
    * @satisfies {import("tailwindcss/types/config").PluginsConfig}
@@ -580,7 +584,7 @@ export const preset: PresetsConfig = {
 
   // https://tailwindcss.com/docs/theme#configuration-reference
   // https://github.com/tailwindlabs/tailwindcss/blob/main/src/corePlugins.js
-  corePlugins: {},
+  // corePlugins: {},
 }
 
 export type PresetTheme = typeof preset.theme

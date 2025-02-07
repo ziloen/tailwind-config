@@ -9,7 +9,7 @@
     "strict": true,
     "allowSyntheticDefaultImports": true,
     "lib": [
-      "ESNext"
+      "ESNext",
     ]
   }
 }
