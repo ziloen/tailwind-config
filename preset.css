@@ -1,0 +1,4 @@
+@import "tailwindcss/utilities";
+@import "./color.css";
+@plugin "./dist/containerQueries.js";
+@plugin "./dist/plugin.js";

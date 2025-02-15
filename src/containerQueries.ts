@@ -9,7 +9,7 @@ function parseValue(value: string) {
   return [operator, numericValue]
 }
 
-export const containerQueries: PluginWithConfig = {
+const containerQueries: PluginWithConfig = {
   handler: ({ matchUtilities, matchVariant, theme }) => {
     const values: Record<string, string> = theme('containers') ?? {}
 
@@ -72,4 +72,5 @@ export const containerQueries: PluginWithConfig = {
   },
 }
 
+export default containerQueries
 

@@ -2,7 +2,8 @@ import { defineConfig } from 'tsup'
 
 export default defineConfig({
   entry: [
-    'src/index.ts',
+    "src/containerQueries.ts",
+    "src/plugin.ts"
   ],
   target: 'esnext',
   outDir: 'dist',
