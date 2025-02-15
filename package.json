@@ -1,6 +1,6 @@
 {
   "name": "@ziloen/tailwind-config",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "",
   "type": "module",
   "main": "dist/index.js",
@@ -33,15 +33,15 @@
     "access": "public"
   },
   "devDependencies": {
-    "@types/node": "^22.13.1",
+    "@types/node": "^22.13.4",
     "@ziloen/eslint-config": "^0.1.58",
-    "bumpp": "^10.0.2",
-    "eslint": "^9.19.0",
-    "tsdown": "^0.5.8",
+    "bumpp": "^10.0.3",
+    "eslint": "^9.20.1",
+    "tsdown": "^0.5.9",
     "tsup": "^8.3.6",
     "typescript": "^5.7.3"
   },
   "dependencies": {
-    "tailwindcss": "^4.0.4"
+    "tailwindcss": "^4.0.6"
   }
 }
