@@ -2,13 +2,17 @@ import { defineConfig } from "tsdown"
 
 export default defineConfig({
   entry: [
-    "src/index.ts",
+    "src/containerQueries.ts",
+    "src/plugin.ts"
   ],
-  treeshake: true,
+  target: "esnext",
+  outDir: "dist",
+  minify: false,
+  dts: true,
   format: ["esm"],
   platform: "node",
-  dts: true,
-  clean: true,
+  skipNodeModulesBundle: true,
+  treeshake: true,
   sourcemap: false,
-  minify: false,
+  clean: true,
 })
