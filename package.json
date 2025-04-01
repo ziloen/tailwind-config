@@ -33,7 +33,7 @@
     "access": "public"
   },
   "devDependencies": {
-    "@types/node": "^22.13.14",
+    "@types/node": "^22.13.15",
     "@ziloen/eslint-config": "^0.1.60",
     "bumpp": "^10.1.0",
     "eslint": "^9.23.0",

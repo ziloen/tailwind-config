@@ -288,6 +288,25 @@ export function pluginCreator({
     values: flattenColorPalette(theme('colors') as Record<string, unknown>),
   })
 
+  matchUtilities({
+    'min-size': (value: string) => ({
+      'min-height': value,
+      'min-width': value,
+    })
+  }, {
+    type: 'length',
+    values: theme('spacing') as Record<string, string>
+  })
+
+  matchUtilities({
+    'max-size': (value: string) => ({
+      'max-height': value,
+      'max-width': value,
+    })
+  }, {
+    type: 'length',
+    values: theme('spacing') as Record<string, string>
+  })
 
   // TODO: use v4 syntax
   // https://github.com/w3c/csswg-drafts/issues/1544
