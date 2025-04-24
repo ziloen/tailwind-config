@@ -11,11 +11,11 @@
 <div class="*:bg-white"></div>
 ```
 
-### `bg-[--color]`
+### `bg-(--color)`
 
 ```html
 <!-- background-color: var(--color); -->
-<div class="bg-[--color]"></div>
+<div class="bg-(--color)"></div>
 ```
 
 ### linear-gradient
