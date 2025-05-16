@@ -1,6 +1,12 @@
 {
   "[typescript]": {
-    "editor.defaultFormatter": "dbaeumer.vscode-eslint",
+    "editor.defaultFormatter": "dbaeumer.vscode-eslint"
   },
+  "cSpell.words": [
+    "tailwindcss"
+  ],
+  "css.customData": [
+    ".vscode/css-data.json",
+  ],
   "eslint.format.enable": true
 }
