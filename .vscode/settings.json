@@ -8,5 +8,6 @@
   "css.customData": [
     ".vscode/css-data.json",
   ],
-  "eslint.format.enable": true
+  "eslint.format.enable": true,
+  "tailwindCSS.experimental.configFile": "playground/index.css"
 }

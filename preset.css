@@ -21,3 +21,7 @@
 @utility animation-running {
   animation-play-state: running;
 }
+
+@utility z-max {
+  z-index: 2147483647;
+}
