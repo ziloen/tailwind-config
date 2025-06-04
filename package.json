@@ -32,11 +32,11 @@
     "access": "public"
   },
   "devDependencies": {
-    "@types/node": "^22.15.26",
+    "@types/node": "^22.15.29",
     "@ziloen/eslint-config": "^0.1.63",
     "bumpp": "^10.1.1",
-    "eslint": "^9.27.0",
-    "tsdown": "0.12.4",
+    "eslint": "^9.28.0",
+    "tsdown": "0.12.6",
     "typescript": "^5.8.3"
   },
   "dependencies": {
