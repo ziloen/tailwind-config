@@ -25,3 +25,7 @@
 @utility z-max {
   z-index: 2147483647;
 }
+
+@utility grid-cols-fit-* {
+  grid-template-columns: repeat(auto-fit, minmax(min(--value(--container-*, [length]), 100%), 1fr));
+}
