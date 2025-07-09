@@ -29,3 +29,7 @@
 @utility grid-cols-fit-* {
   grid-template-columns: repeat(auto-fit, minmax(min(--value(--container-*, [length]), 100%), 1fr));
 }
+
+@utility area-* {
+  grid-area: --value([*]);
+}
