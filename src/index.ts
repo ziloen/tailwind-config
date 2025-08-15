@@ -53,28 +53,6 @@ export function pluginCreator({
       'scrollbar-gutter': 'stable both-edges'
     },
 
-
-    // Leading trim simulate
-    // text-box-trim: both;
-    // https://www.w3.org/TR/css-inline-3/#leading-trim
-    // https://www.w3.org/TR/css-inline-3/#text-box-edges
-    // https://caniuse.com/css-text-box-trim
-    // (1lh - 1em) / 2 * -1
-    '.leading-trim-both': {
-      '@supports (text-box-trim: both)': {
-        'text-box-trim': 'both'
-      },
-      '@supports not (text-box-trim: both)': {
-        'margin-block': 'calc(0.5em - 0.5lh)',
-      }
-    },
-    // '.leading-trim-start': {
-    //   'margin-block-start': 'calc(0.5em - 0.5lh)',
-    // },
-    // '.leading-trim-end': {
-    //   'margin-block-end': 'calc(0.5em - 0.5lh)',
-    // },
-
     // https://developer.mozilla.org/en-US/docs/Web/CSS/justify-content#safe
     '.justify-safe-center': {
       'justify-content': 'safe center',

@@ -14,12 +14,8 @@
   grid-row-end: span --value(integer);
 }
 
-@utility animation-paused {
-  animation-play-state: paused;
-}
-
-@utility animation-running {
-  animation-play-state: running;
+@utility animation-* {
+  animation-play-state: --value("paused", "running");
 }
 
 @utility z-max {
@@ -32,4 +28,12 @@
 
 @utility area-* {
   grid-area: --value([*]);
+}
+
+@utility text-box-* {
+  text-box-trim: --value("trim-both", "trim-start", "trim-end");
+}
+
+@utility leading-* {
+  text-box-trim: --value("trim-both", "trim-start", "trim-end");
 }
