@@ -40,3 +40,7 @@
 @utility leading-* {
   text-box-trim: --value("trim-both", "trim-start", "trim-end");
 }
+
+@utility image-rendering-* {
+  image-rendering: --value("auto", "crisp-edges", "pixelated");
+}
