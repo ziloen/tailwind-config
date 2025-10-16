@@ -44,3 +44,7 @@
 @utility image-rendering-* {
   image-rendering: --value("auto", "crisp-edges", "pixelated");
 }
+
+@utility dir-* {
+  direction: --value("ltr", "rtl");
+}
