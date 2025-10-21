@@ -23,6 +23,7 @@
   "scripts": {
     "build": "tsdown",
     "prepack": "tsdown --minify",
+    "build:playground": "npx @tailwindcss/cli -i playground/index.css -o playground/output.css",
     "release": "bumpp --commit --no-push && npm publish"
   },
   "keywords": [],
@@ -32,14 +33,15 @@
     "access": "public"
   },
   "devDependencies": {
-    "@types/node": "^24.3.0",
-    "@ziloen/eslint-config": "^0.1.70",
-    "bumpp": "^10.2.3",
-    "eslint": "^9.34.0",
-    "tsdown": "0.14.2",
-    "typescript": "^5.9.2"
+    "@tailwindcss/cli": "4.1.15",
+    "@types/node": "^24.9.1",
+    "@ziloen/eslint-config": "^0.1.73",
+    "bumpp": "^10.3.1",
+    "eslint": "^9.38.0",
+    "tsdown": "0.15.9",
+    "typescript": "^5.9.3"
   },
   "dependencies": {
-    "tailwindcss": "^4.1.12"
+    "tailwindcss": "^4.1.15"
   }
 }
