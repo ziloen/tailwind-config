@@ -48,3 +48,44 @@
 @utility dir-* {
   direction: --value("ltr", "rtl");
 }
+
+@utility h-stretch {
+  height: stretch;
+}
+
+@utility w-stretch {
+  width: stretch;
+}
+
+@utility size-stretch {
+  width: stretch;
+  height: stretch;
+}
+
+@utility flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@utility inline-flex-center {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@utility scrollbar-gutter-auto {
+  scrollbar-gutter: auto;
+}
+
+@utility scrollbar-gutter-stable {
+  scrollbar-gutter: stable;
+}
+
+@utility scrollbar-gutter-both {
+  scrollbar-gutter: stable both-edges;
+}
+
+@utility line-break-* {
+  line-break: --value("normal", "auto", "loose", "strict", "anywhere");
+}

@@ -10,18 +10,6 @@ export default function pluginCreator({
   theme,
 }: PluginAPI): void {
   addUtilities({
-    // Flex
-    '.flex-center': {
-      display: 'flex',
-      'justify-content': 'center',
-      'align-items': 'center',
-    },
-    '.inline-flex-center': {
-      display: 'inline-flex',
-      'justify-content': 'center',
-      'align-items': 'center',
-    },
-
     // Scrollbar
     '.scrollbar-none': {
       'scrollbar-width': 'none',
@@ -39,15 +27,6 @@ export default function pluginCreator({
     },
     '.scrollbar-thin': {
       'scrollbar-width': 'thin',
-    },
-    '.scrollbar-gutter-auto': {
-      'scrollbar-gutter': 'auto'
-    },
-    '.scrollbar-gutter-stable': {
-      'scrollbar-gutter': 'stable'
-    },
-    '.scrollbar-gutter-both': {
-      'scrollbar-gutter': 'stable both-edges'
     },
 
     // https://developer.mozilla.org/en-US/docs/Web/CSS/justify-content#safe
@@ -97,23 +76,6 @@ export default function pluginCreator({
     },
     '.overflow-anchor-auto': {
       'overflow-anchor': 'auto',
-    },
-
-    // line-break
-    '.line-break-normal': {
-      'line-break': 'normal',
-    },
-    '.line-break-auto': {
-      'line-break': 'auto',
-    },
-    '.line-break-loose': {
-      'line-break': 'loose',
-    },
-    '.line-break-strict': {
-      'line-break': 'strict',
-    },
-    '.line-break-anywhere': {
-      'line-break': 'anywhere',
     },
 
     // Modern way to create block formatting context
@@ -208,29 +170,18 @@ export default function pluginCreator({
       'border-inline-end-width': '1px',
     },
 
-    '.h-stretch': {
-      height: 'stretch'
-    },
-    '.w-stretch': {
-      width: 'stretch'
-    },
-    '.size-stretch': {
-      width: 'stretch',
-      height: 'stretch'
-    },
-
     // https://github.com/w3c/csswg-drafts/issues/1724
     '.bg-gradient-to-start': {
       'background-image': 'linear-gradient(to left, var(--tw-gradient-stops))',
 
-      [`&:where([dir="rtl"], [dir="rtl"] *)`]: {
+      ['&:where([dir="rtl"], [dir="rtl"] *)']: {
         'background-image': 'linear-gradient(to right, var(--tw-gradient-stops))'
       }
     },
     '.bg-gradient-to-end': {
       'background-image': 'linear-gradient(to right, var(--tw-gradient-stops))',
 
-      [`&:where([dir="rtl"], [dir="rtl"] *)`]: {
+      ['&:where([dir="rtl"], [dir="rtl"] *)']: {
         'background-image': 'linear-gradient(to left, var(--tw-gradient-stops))'
       }
     },
