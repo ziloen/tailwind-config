@@ -29,16 +29,6 @@ export default function pluginCreator({
       'scrollbar-width': 'thin',
     },
 
-    // https://developer.mozilla.org/en-US/docs/Web/CSS/justify-content#safe
-    '.justify-safe-center': {
-      'justify-content': 'safe center',
-    },
-    '.justify-safe-start': {
-      'justify-content': 'safe start',
-    },
-    '.justify-safe-end': {
-      'justify-content': 'safe end',
-    },
 
     '.resizable': {
       resize: 'both',
@@ -97,11 +87,6 @@ export default function pluginCreator({
     },
 
     // In the default config, `outline` represents `outline-style: solid`, but `border` represents `border-width: 1px`, which is confusing
-    // TODO: remove in v4
-    '.outline-solid': {
-      'outline-style': 'solid',
-    },
-
     '.border-t-solid': {
       'border-top-style': 'solid',
     },
