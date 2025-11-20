@@ -490,12 +490,12 @@
     }
   }
 
-  .sibs-prev\:bg-red-500:has( ~ .sibs) {
+  .sibs-prev\:bg-red-500 .sibs-parent > :is() {
     background-color: var(--color-red-500);
   }
 
   @media (hover: hover) {
-    .hover\:sibs-next\:bg-red-500:hover:is(.sibs ~ *) {
+    .sibs-parent > :is() {
       background-color: var(--color-red-500);
     }
   }
