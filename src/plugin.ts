@@ -268,7 +268,7 @@ export default function pluginCreator({
   addVariant('hover-focus', ['&:hover', '&:focus'])
   addVariant('hover-active', ['&:hover', '&:active'])
 
-  matchVariant('sibs-near-nth', (value) => {
+  matchVariant('neighbors-nth', (value) => {
     const n = Number(value)
     if (Number.isNaN(n) || n <= 0) return ''
 

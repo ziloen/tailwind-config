@@ -490,12 +490,12 @@
     }
   }
 
-  :has( ~ .sibs-prev\:bg-red-500) {
+  .neighbors-nth-2\:bg-red-500 + * + *, :has( + * + .neighbors-nth-2\:bg-red-500), :has( ~ .preceding\:bg-red-500) {
     background-color: var(--color-red-500);
   }
 
   @media (hover: hover) {
-    .hover\:sibs-next\:bg-red-500:hover ~ * {
+    .hover\:following\:bg-red-500:hover ~ * {
       background-color: var(--color-red-500);
     }
   }

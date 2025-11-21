@@ -95,21 +95,22 @@
 }
 
 /*
-sibs-prev:bg-red-500 后面 所有 兄弟元素
-sibs-next:bg-blue-500 前面 所有 兄弟元素
-sibs-next-3:text-lg 前面 所有三个 兄弟元素
-sibs-next-nth-3:font-bold 后面 第三个 兄弟元素
-sibs-near-2:underline 前后 两个 兄弟元素
+following:bg-red-500 后面 所有 兄弟元素
+preceding:bg-blue-500 前面 所有 兄弟元素
+preceding-3:text-lg 前面 所有三个 兄弟元素
+preceding-nth-3:font-bold 后面 第三个 兄弟元素
+neighbors-2:underline 前面两个 和 后面两个 共四个 兄弟元素
+neighbors-nth-2:italic 前面后面 各自 第二个 兄弟元素
 */
-/* @custom-variant sibs-prev (:has(~ &)); */
-@custom-variant sibs-prev {
+/* @custom-variant preceding (:has(~ &)); */
+@custom-variant preceding {
   :has(~ &) {
     @slot;
   }
 }
 
-/* @custom-variant sibs-prev (& ~ *); */
-@custom-variant sibs-next {
+/* @custom-variant following (& ~ *); */
+@custom-variant following {
   & ~ * {
     @slot;
   }
