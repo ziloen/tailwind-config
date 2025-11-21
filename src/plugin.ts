@@ -7,6 +7,7 @@ export default function pluginCreator({
   addUtilities,
   addVariant,
   matchUtilities,
+  matchVariant,
   theme,
 }: PluginAPI): void {
   addUtilities({
@@ -266,4 +267,19 @@ export default function pluginCreator({
   // combine multiple variants
   addVariant('hover-focus', ['&:hover', '&:focus'])
   addVariant('hover-active', ['&:hover', '&:active'])
+
+  matchVariant('sibs-near-nth', (value) => {
+    const n = Number(value)
+    if (Number.isNaN(n) || n <= 0) return ''
+
+    return `&${' + *'.repeat(n)}, :has(${'+ * '.repeat(n - 1)}+ &)`
+  }, {
+    values: {
+      1: '1',
+      2: '2',
+      3: '3',
+      4: '4',
+      5: '5',
+    }
+  })
 }

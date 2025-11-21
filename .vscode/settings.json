@@ -9,5 +9,15 @@
     ".vscode/css-data.json",
   ],
   "eslint.format.enable": true,
-  "tailwindCSS.experimental.configFile": "playground/index.css"
+  "tailwindCSS.experimental.configFile": "playground/index.css",
+  "javascript.preferences.autoImportSpecifierExcludeRegexes": [
+    "^console$",
+    "^node:console$",
+    "^typescript$",
+  ],
+  "typescript.preferences.autoImportSpecifierExcludeRegexes": [
+    "^console$",
+    "^node:console$",
+    "^typescript$",
+  ]
 }
