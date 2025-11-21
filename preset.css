@@ -95,22 +95,22 @@
 }
 
 /*
-sibs-parent
-
-sibs-prev:bg-red-500 .sibs 后面 所有 兄弟元素
-sibs-next:bg-blue-500 .sibs 前面 所有 兄弟元素
-sibs-next-3:text-lg .sibs 前面 所有三个 兄弟元素
-sibs-next-nth-3:font-bold .sibs 后面 第三个 兄弟元素
-sibs-near-2:underline .sibs 前后 两个 兄弟元素
+sibs-prev:bg-red-500 后面 所有 兄弟元素
+sibs-next:bg-blue-500 前面 所有 兄弟元素
+sibs-next-3:text-lg 前面 所有三个 兄弟元素
+sibs-next-nth-3:font-bold 后面 第三个 兄弟元素
+sibs-near-2:underline 前后 两个 兄弟元素
 */
+/* @custom-variant sibs-prev (:has(~ &)); */
 @custom-variant sibs-prev {
-  .sibs-parent > :is(~ &) {
+  :has(~ &) {
     @slot;
   }
 }
 
+/* @custom-variant sibs-prev (& ~ *); */
 @custom-variant sibs-next {
-  .sibs-parent > :is(& ~) {
+  & ~ * {
     @slot;
   }
 }
