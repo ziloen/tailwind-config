@@ -3,22 +3,18 @@
   "version": "2.0.13",
   "description": "",
   "type": "module",
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts",
   "files": [
     "dist",
+    "color.css",
     "preset.css",
-    "color.css"
+    "preflight.css",
+    "utilities.css"
   ],
   "exports": {
-    ".": {
-      "import": "./dist/index.js",
-      "require": "./dist/index.js"
-    },
-    "./preset.css": "./preset.css",
-    "./preset": "./preset.css",
     "./color.css": "./color.css",
-    "./color": "./color.css"
+    "./preset.css": "./preset.css",
+    "./preflight.css": "./preflight.css",
+    "./utilities.css": "./utilities.css"
   },
   "scripts": {
     "build": "tsdown",
@@ -35,10 +31,10 @@
   "devDependencies": {
     "@tailwindcss/cli": "4.1.17",
     "@types/node": "^24.10.1",
-    "@ziloen/eslint-config": "^0.1.73",
-    "bumpp": "^10.3.1",
+    "@ziloen/eslint-config": "^0.1.74",
+    "bumpp": "^10.3.2",
     "eslint": "^9.39.1",
-    "tsdown": "0.16.6",
+    "tsdown": "0.16.8",
     "typescript": "^5.9.3"
   },
   "dependencies": {

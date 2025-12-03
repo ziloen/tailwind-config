@@ -1,0 +1,113 @@
+@plugin './dist/containerQueries.js';
+@plugin './dist/plugin.js';
+
+@utility col-end-span-* {
+  grid-column-end: span --value(integer);
+}
+
+@utility row-end-span-* {
+  grid-row-end: span --value(integer);
+}
+
+@utility animation-* {
+  animation-play-state: --value("paused", "running");
+}
+
+@utility z-max {
+  z-index: 2147483647;
+}
+
+@utility grid-cols-fit-* {
+  grid-template-columns: repeat(auto-fit, minmax(min(--value(--container-*, [length]), 100%), 1fr));
+}
+
+@utility grid-cols-fill-* {
+  grid-template-columns: repeat(auto-fill, minmax(min(--value(--container-*, [length]), 100%), 1fr));
+}
+
+@utility area-* {
+  grid-area: --value([*]);
+}
+
+/* https://www.w3.org/TR/css-inline-3/#leading-trim */
+/* https://www.w3.org/TR/css-inline-3/#text-box-edge */
+/* https://caniuse.com/css-text-box-trim */
+@utility text-box-* {
+  text-box-trim: --value("trim-both", "trim-start", "trim-end");
+}
+
+@utility leading-* {
+  text-box-trim: --value("trim-both", "trim-start", "trim-end");
+}
+
+@utility image-rendering-* {
+  image-rendering: --value("auto", "crisp-edges", "pixelated");
+}
+
+@utility dir-* {
+  direction: --value("ltr", "rtl");
+}
+
+@utility h-stretch {
+  height: stretch;
+}
+
+@utility w-stretch {
+  width: stretch;
+}
+
+@utility size-stretch {
+  width: stretch;
+  height: stretch;
+}
+
+@utility flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@utility inline-flex-center {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@utility scrollbar-gutter-auto {
+  scrollbar-gutter: auto;
+}
+
+@utility scrollbar-gutter-stable {
+  scrollbar-gutter: stable;
+}
+
+@utility scrollbar-gutter-both {
+  scrollbar-gutter: stable both-edges;
+}
+
+@utility line-break-* {
+  line-break: --value("normal", "auto", "loose", "strict", "anywhere");
+}
+
+
+/*
+following:bg-red-500 后面 所有 兄弟元素
+preceding:bg-blue-500 前面 所有 兄弟元素
+preceding-3:text-lg 前面 所有三个 兄弟元素
+preceding-nth-3:font-bold 后面 第三个 兄弟元素
+neighbors-2:underline 前面两个 和 后面两个 共四个 兄弟元素
+neighbors-nth-2:italic 前面后面 各自 第二个 兄弟元素
+*/
+/* @custom-variant preceding (:has(~ &)); */
+@custom-variant preceding {
+  :has(~ &) {
+    @slot;
+  }
+}
+
+/* @custom-variant following (& ~ *); */
+@custom-variant following {
+  & ~ * {
+    @slot;
+  }
+}
