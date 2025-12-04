@@ -21,7 +21,7 @@
   --color-green-700: #068989;
   --color-green-800: #005e5d;
   --color-green-900: #083f37;
-  --color-green: var(--color-green-500);
+  --color-green: --theme(--color-green-500);
 
   --color-blue-50: #acf1ff;
   --color-blue-100: #80eaff;
@@ -33,7 +33,7 @@
   --color-blue-700: #063f96;
   --color-blue-800: #073072;
   --color-blue-900: #0a214d;
-  --color-blue: var(--color-blue-500);
+  --color-blue: --theme(--color-blue-500);
 
   --color-violet-50: #e6dfff;
   --color-violet-100: #d9bfff;
@@ -45,7 +45,7 @@
   --color-violet-700: #582acb;
   --color-violet-800: #46278e;
   --color-violet-900: #321c64;
-  --color-violet: var(--color-violet-500);
+  --color-violet: --theme(--color-violet-500);
 
   --color-purple-50: #f7e3ff;
   --color-purple-100: #f6b9ff;
@@ -57,7 +57,7 @@
   --color-purple-700: #712290;
   --color-purple-800: #4d1a69;
   --color-purple-900: #2b1141;
-  --color-purple: var(--color-purple-500);
+  --color-purple: --theme(--color-purple-500);
 
   --color-pink-50: #ffdff0;
   --color-pink-100: #ffb4db;
@@ -69,7 +69,7 @@
   --color-pink-700: #c60184;
   --color-pink-800: #7f165b;
   --color-pink-900: #50134c;
-  --color-pink: var(--color-pink-500);
+  --color-pink: --theme(--color-pink-500);
 
   --color-red-50: #ffe0e8;
   --color-red-100: #ffbec6;
@@ -81,7 +81,7 @@
   --color-red-700: #c50143;
   --color-red-800: #800220;
   --color-red-900: #440307;
-  --color-red: var(--color-red-500);
+  --color-red: --theme(--color-red-500);
 
   --color-orange-50: #fff4de;
   --color-orange-100: #ffd6b2;
@@ -93,7 +93,7 @@
   --color-orange-700: #cd3d00;
   --color-orange-800: #9d280c;
   --color-orange-900: #7b1604;
-  --color-orange: var(--color-orange-500);
+  --color-orange: --theme(--color-orange-500);
 
   --color-yellow-50: #ffffcd;
   --color-yellow-100: #feff95;
@@ -105,7 +105,7 @@
   --color-yellow-700: #c45a28;
   --color-yellow-800: #a7341f;
   --color-yellow-900: #960f18;
-  --color-yellow: var(--color-yellow-500);
+  --color-yellow: --theme(--color-yellow-500);
 
   /* https://protocol.mozilla.org/docs/fundamentals/color */
   --color-light-gray-50: #ffffff;
@@ -118,7 +118,7 @@
   --color-light-gray-700: #9f9fad;
   --color-light-gray-800: #8f8f9e;
   --color-light-gray-900: #80808f;
-  --color-light-gray: var(--color-light-gray-500);
+  --color-light-gray: --theme(--color-light-gray-500);
 
   --color-dark-gray-50: #5b5b66;
   --color-dark-gray-100: #52525e;
@@ -130,9 +130,9 @@
   --color-dark-gray-700: #23222b;
   --color-dark-gray-800: #1c1b22;
   --color-dark-gray-900: #15141a;
-  --color-dark-gray: var(--color-dark-gray-500);
+  --color-dark-gray: --theme(--color-dark-gray-500);
 
-  /* Generated from https://linear-easing-generator.netlify.app/ */
+  /* Generated with https://linear-easing-generator.netlify.app/ */
   /* mass: 1, stiffness: 100, damping: 10, velocity: 0 */
   --ease-spring: linear(0, 0.009, 0.035 2.1%, 0.141, 0.281 6.7%, 0.723 12.9%, 0.938 16.7%, 1.017,
       1.077, 1.121, 1.149 24.3%, 1.159, 1.163, 1.161, 1.154 29.9%, 1.129 32.8%,

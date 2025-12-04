@@ -9,31 +9,11 @@
       --tw-skew-y: initial;
       --tw-border-style: solid;
       --tw-leading: initial;
-      --tw-outline-style: solid;
     }
   }
 }
 
-@layer theme {
-  :root, :host {
-    --color-white: #fff;
-    --color-green-500: #3fe1b0;
-    --color-green-600: #2bc4a2;
-    --color-blue-500: #0060e0;
-    --color-violet-500: #9059ff;
-    --color-purple-500: #b933e1;
-    --color-pink-500: #ff2a8a;
-    --color-red-500: #ff505f;
-    --color-red: var(--color-red-500);
-    --color-orange-500: #ff7139;
-    --color-yellow-500: #ffa537;
-    --color-light-gray-500: #bfbfc9;
-    --color-dark-gray-50: #5b5b66;
-    --color-dark-gray-500: #32313c;
-  }
-}
-
-@layer base, components;
+@layer theme, base, components;
 
 @layer utilities {
   .\@container {
@@ -88,54 +68,8 @@
     display: flex;
   }
 
-  .inline-flex-center {
-    justify-content: center;
-    align-items: center;
-    display: inline-flex;
-  }
-
-  .scrollbar-hidden {
-    scrollbar-width: none;
-  }
-
-  .scrollbar-hidden::-webkit-scrollbar {
-    display: none;
-  }
-
-  .scrollbar-none {
-    scrollbar-width: none;
-  }
-
-  .scrollbar-none::-webkit-scrollbar {
-    display: none;
-  }
-
-  .block {
-    display: block;
-  }
-
-  .clear-fix {
-    display: flow-root;
-  }
-
-  .flex {
-    display: flex;
-  }
-
-  .flow-root {
-    display: flow-root;
-  }
-
-  .hidden {
-    display: none;
-  }
-
   .inline {
     display: inline;
-  }
-
-  .inline-flex {
-    display: inline-flex;
   }
 
   .size-stretch {
@@ -153,9 +87,9 @@
     height: stretch;
   }
 
-  .max-size-\[200px\] {
-    max-width: 200px;
-    max-height: 200px;
+  .max-size-5 {
+    max-width: 20px;
+    max-height: 20px;
   }
 
   .min-size-\[100px\] {
@@ -201,105 +135,20 @@
     flex-grow: 0;
   }
 
-  .basis-fit {
-    flex-basis: fit-content;
-  }
-
-  .basis-max {
-    flex-basis: max-content;
-  }
-
-  .basis-min {
-    flex-basis: min-content;
-  }
-
   .transform {
     transform: var(--tw-rotate-x, ) var(--tw-rotate-y, ) var(--tw-rotate-z, ) var(--tw-skew-x, ) var(--tw-skew-y, );
   }
 
-  .resizable {
-    resize: both;
-    overflow: hidden;
-  }
-
-  .resizable-x {
-    resize: horizontal;
-    overflow: hidden;
-  }
-
-  .resizable-y {
-    resize: vertical;
-    overflow: hidden;
-  }
-
-  .resize {
-    resize: both;
-  }
-
-  .border, .border-1, .border-\[1px\] {
+  .border, .border-\[1px\] {
     border-style: var(--tw-border-style);
     border-width: 1px;
   }
 
-  .border-1 {
-    border-width: 1px;
-  }
-
-  .border-x-1 {
-    border-inline-style: var(--tw-border-style);
-    border-inline-width: 1px;
-  }
-
-  .border-y-1 {
-    border-block-style: var(--tw-border-style);
-    border-block-width: 1px;
-  }
-
-  .border-s-1 {
-    border-inline-start-style: var(--tw-border-style);
-    border-inline-start-width: 1px;
-  }
-
-  .border-e-1 {
-    border-inline-end-style: var(--tw-border-style);
-    border-inline-end-width: 1px;
-  }
-
-  .border-y-1 {
-    border-top-width: 1px;
-    border-bottom-width: 1px;
-  }
-
-  .border-t-1 {
-    border-top-style: var(--tw-border-style);
-    border-top-width: 1px;
-  }
-
-  .border-x-1 {
-    border-left-width: 1px;
-    border-right-width: 1px;
-  }
-
-  .border-r-1 {
-    border-right-style: var(--tw-border-style);
-    border-right-width: 1px;
-  }
-
-  .border-b-1 {
-    border-bottom-style: var(--tw-border-style);
-    border-bottom-width: 1px;
-  }
-
-  .border-l-1 {
-    border-left-style: var(--tw-border-style);
-    border-left-width: 1px;
-  }
-
-  .divide-x-solid > :not([hidden]) ~ :not([hidden]) {
+  .boder-x-solid, .divide-x-solid > :not([hidden]) ~ :not([hidden]) {
     border-inline-style: solid;
   }
 
-  .divide-y-solid > :not([hidden]) ~ :not([hidden]) {
+  .boder-y-solid, .divide-y-solid > :not([hidden]) ~ :not([hidden]) {
     border-block-style: solid;
   }
 
@@ -311,18 +160,8 @@
     border-inline-end-style: solid;
   }
 
-  .boder-y-solid {
-    border-top-style: solid;
-    border-bottom-style: solid;
-  }
-
   .border-t-solid {
     border-top-style: solid;
-  }
-
-  .boder-x-solid {
-    border-left-style: solid;
-    border-right-style: solid;
   }
 
   .border-r-solid {
@@ -342,7 +181,7 @@
   }
 
   .bg-green-600 {
-    background-color: var(--color-green-600);
+    background-color: #2bc4a2;
   }
 
   .bg-gradient-to-end {
@@ -363,145 +202,67 @@
   }
 
   .text-dark-gray-50 {
-    color: var(--color-dark-gray-50);
+    color: #5b5b66;
   }
 
   .lowercase {
     text-transform: lowercase;
   }
 
-  .outline {
-    outline-style: var(--tw-outline-style);
-    outline-width: 1px;
-  }
-
-  .outline-solid {
-    --tw-outline-style: solid;
-    outline-style: solid;
-  }
-
   .area-\[1\/1\] {
     grid-area: 1 / 1;
   }
 
-  .line-break-anywhere {
-    line-break: anywhere;
-  }
-
-  .line-break-auto {
-    line-break: auto;
-  }
-
-  .line-break-loose {
-    line-break: loose;
-  }
-
-  .line-break-normal {
-    line-break: normal;
-  }
-
-  .line-break-strict {
-    line-break: strict;
-  }
-
-  .overflow-anchor-auto {
-    overflow-anchor: auto;
-  }
-
-  .overflow-anchor-none {
-    overflow-anchor: none;
-  }
-
-  .scrollbar-gutter-auto {
-    scrollbar-gutter: auto;
-  }
-
-  .scrollbar-gutter-both {
-    scrollbar-gutter: stable both-edges;
-  }
-
-  .scrollbar-gutter-stable {
-    scrollbar-gutter: stable;
-  }
-
-  .scrollbar-thin {
-    scrollbar-width: thin;
-  }
-
-  .text-stroke {
-    -webkit-text-stroke-width: 1px;
-  }
-
   .text-stroke-4 {
-    -webkit-text-stroke-width: 4px;
+    -webkit-text-stroke-width: calc(4 * 1px);
   }
 
   .text-stroke-dark-gray-50 {
     -webkit-text-stroke-color: #5b5b66;
   }
 
-  .writing-horizontal-tb {
-    writing-mode: horizontal-tb;
-  }
-
-  .writing-sideways-lr {
-    writing-mode: sideways-lr;
-  }
-
-  .writing-sideways-rl {
-    writing-mode: sideways-rl;
-  }
-
-  .writing-vertical-lr {
-    writing-mode: vertical-lr;
-  }
-
-  .writing-vertical-rl {
-    writing-mode: vertical-rl;
-  }
-
   :is(.\*\:bg-red > *) {
-    background-color: var(--color-red);
+    background-color: #ff505f;
   }
 
   :is(.\*\:bg-white > *) {
-    background-color: var(--color-white);
+    background-color: #fff;
   }
 
   :is(.\*\*\:bg-red *) {
-    background-color: var(--color-red);
+    background-color: #ff505f;
   }
 
   @container (max-width: 200px) {
     .\@\[\<\=200px\]\:bg-white {
-      background-color: var(--color-white);
+      background-color: #fff;
     }
   }
 
   @container not (max-width: 200px) {
     .\@\[\>200px\]\:bg-white {
-      background-color: var(--color-white);
+      background-color: #fff;
     }
   }
 
   @container (min-width: 200px) {
     .\@\[200px\]\:bg-white {
-      background-color: var(--color-white);
+      background-color: #fff;
     }
   }
 
   .neighbors-nth-2\:bg-red-500 + * + *, :has( + * + .neighbors-nth-2\:bg-red-500), :has( ~ .preceding\:bg-red-500) {
-    background-color: var(--color-red-500);
+    background-color: #ff505f;
   }
 
   @media (hover: hover) {
     .hover\:following\:bg-red-500:hover ~ * {
-      background-color: var(--color-red-500);
+      background-color: #ff505f;
     }
   }
 
   .\[\&_\*\]\:bg-red *, .\[\&\>\*\]\:bg-red > * {
-    background-color: var(--color-red);
+    background-color: #ff505f;
   }
 }
 
@@ -539,10 +300,4 @@
 @property --tw-leading {
   syntax: "*";
   inherits: false
-}
-
-@property --tw-outline-style {
-  syntax: "*";
-  inherits: false;
-  initial-value: solid;
 }

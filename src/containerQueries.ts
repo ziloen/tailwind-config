@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-unsafe-assignment */
 /* eslint-disable @typescript-eslint/unbound-method */
-import type { PluginWithConfig } from './types'
+import type { PluginsConfig } from 'tailwindcss/plugin'
 
 function parseValue(value: string) {
   const [, operator, numericValue] = value.match(/^([><]=?)?((?:\d+\.\d+|\d+|\.\d+)[a-zA-Z]+)$/) ?? []
@@ -9,8 +9,8 @@ function parseValue(value: string) {
   return [operator, numericValue]
 }
 
-const containerQueries: PluginWithConfig = {
-  handler: ({ matchUtilities, matchVariant, theme }) => {
+const containerQueries: PluginsConfig = {
+  handler: ({ matchVariant, theme }) => {
     const values: Record<string, string> = theme('containers') ?? {}
 
     // TODO: Add support for multiple conditions e.g. `@[>=900px<1200px]`

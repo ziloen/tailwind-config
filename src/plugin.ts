@@ -1,93 +1,13 @@
-/* eslint-disable @typescript-eslint/no-unsafe-argument */
 /* eslint-disable @typescript-eslint/unbound-method */
-import flattenColorPalette from 'tailwindcss/lib/util/flattenColorPalette'
-import type { PluginAPI } from './types'
+import type { PluginAPI } from 'tailwindcss/plugin'
 
 export default function pluginCreator({
   addUtilities,
-  addVariant,
   matchUtilities,
   matchVariant,
   theme,
 }: PluginAPI): void {
   addUtilities({
-    // Scrollbar
-    '.scrollbar-none': {
-      'scrollbar-width': 'none',
-
-      '&::-webkit-scrollbar': {
-        display: 'none',
-      },
-    },
-    '.scrollbar-hidden': {
-      'scrollbar-width': 'none',
-
-      '&::-webkit-scrollbar': {
-        display: 'none',
-      },
-    },
-    '.scrollbar-thin': {
-      'scrollbar-width': 'thin',
-    },
-
-
-    '.resizable': {
-      resize: 'both',
-      overflow: 'hidden',
-    },
-    '.resizable-x': {
-      resize: 'horizontal',
-      overflow: 'hidden'
-    },
-    '.resizable-y': {
-      resize: 'vertical',
-      overflow: 'hidden'
-    },
-
-    // Writing mode
-    '.writing-vertical-rl': {
-      'writing-mode': 'vertical-rl',
-    },
-    '.writing-vertical-lr': {
-      'writing-mode': 'vertical-lr',
-    },
-    '.writing-horizontal-tb': {
-      'writing-mode': 'horizontal-tb',
-    },
-    '.writing-sideways-rl': {
-      'writing-mode': 'sideways-rl',
-    },
-    '.writing-sideways-lr': {
-      'writing-mode': 'sideways-lr',
-    },
-
-    // overflow-anchor
-    '.overflow-anchor-none': {
-      'overflow-anchor': 'none',
-    },
-    '.overflow-anchor-auto': {
-      'overflow-anchor': 'auto',
-    },
-
-    // Modern way to create block formatting context
-    '.clear-fix': {
-      display: 'flow-root',
-    },
-
-
-
-    // Extends tailwindcss default utility classes
-    '.basis-max': {
-      'flex-basis': 'max-content',
-    },
-    '.basis-min': {
-      'flex-basis': 'min-content',
-    },
-    '.basis-fit': {
-      'flex-basis': 'fit-content',
-    },
-
-    // In the default config, `outline` represents `outline-style: solid`, but `border` represents `border-width: 1px`, which is confusing
     '.border-t-solid': {
       'border-top-style': 'solid',
     },
@@ -101,12 +21,10 @@ export default function pluginCreator({
       'border-left-style': 'solid',
     },
     '.boder-x-solid': {
-      'border-left-style': 'solid',
-      'border-right-style': 'solid',
+      'border-inline-style': 'solid',
     },
     '.boder-y-solid': {
-      'border-top-style': 'solid',
-      'border-bottom-style': 'solid',
+      'border-block-style': 'solid',
     },
     '.border-s-solid': {
       'border-inline-start-style': 'solid',
@@ -126,36 +44,6 @@ export default function pluginCreator({
       }
     },
 
-    '.border-1': {
-      'border-width': '1px',
-    },
-    '.border-t-1': {
-      'border-top-width': '1px',
-    },
-    '.border-r-1': {
-      'border-right-width': '1px',
-    },
-    '.border-b-1': {
-      'border-bottom-width': '1px',
-    },
-    '.border-l-1': {
-      'border-left-width': '1px',
-    },
-    '.border-x-1': {
-      'border-left-width': '1px',
-      'border-right-width': '1px',
-    },
-    '.border-y-1': {
-      'border-top-width': '1px',
-      'border-bottom-width': '1px',
-    },
-    '.border-s-1': {
-      'border-inline-start-width': '1px',
-    },
-    '.border-e-1': {
-      'border-inline-end-width': '1px',
-    },
-
     // https://github.com/w3c/csswg-drafts/issues/1724
     '.bg-gradient-to-start': {
       'background-image': 'linear-gradient(to left, var(--tw-gradient-stops))',
@@ -171,53 +59,6 @@ export default function pluginCreator({
         'background-image': 'linear-gradient(to left, var(--tw-gradient-stops))'
       }
     },
-  })
-
-  matchUtilities({
-    'text-stroke': (value: string) => ({
-      '-webkit-text-stroke-width': value,
-    })
-  }, {
-    type: 'length',
-    values: theme('borderWidth') as Record<string, string>
-  })
-
-  // FIXME: No color decorator
-  matchUtilities({
-    'text-stroke': (value) => {
-      // return withAlphaVariable({
-      //   color: value,
-      //   property: '-webkit-text-stroke-color',
-      //   variable: '--tw-text-stroke-color',
-      // })
-
-      return {
-        '-webkit-text-stroke-color': value,
-      }
-    }
-  }, {
-    type: ['color', 'any'],
-    values: flattenColorPalette(theme('colors')),
-  })
-
-  matchUtilities({
-    'min-size': (value: string) => ({
-      'min-height': value,
-      'min-width': value,
-    })
-  }, {
-    type: 'length',
-    values: theme('spacing') as Record<string, string>
-  })
-
-  matchUtilities({
-    'max-size': (value: string) => ({
-      'max-height': value,
-      'max-width': value,
-    })
-  }, {
-    type: 'length',
-    values: theme('spacing') as Record<string, string>
   })
 
   // TODO: use v4 syntax
@@ -255,18 +96,6 @@ export default function pluginCreator({
   //   },
   //   { values: flattenColorPalette(theme("backgroundColor")), type: "color" }
   // )
-
-  // Webkit scrollbar pseudo
-  addVariant('webkit-scrollbar', '&::-webkit-scrollbar')
-  addVariant('webkit-scrollbar-thumb', '&::-webkit-scrollbar-thumb')
-  addVariant('webkit-scrollbar-track', '&::-webkit-scrollbar-track')
-  addVariant('webkit-scrollbar-track-piece', '&::-webkit-scrollbar-track-piece')
-  addVariant('webkit-scrollbar-button', '&::-webkit-scrollbar-button')
-  // addVariant('display-mode-fullscreen', '@media (display-mode: fullscreen)')
-
-  // combine multiple variants
-  addVariant('hover-focus', ['&:hover', '&:focus'])
-  addVariant('hover-active', ['&:hover', '&:active'])
 
   matchVariant('neighbors-nth', (value) => {
     const n = Number(value)
