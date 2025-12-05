@@ -1,0 +1,113 @@
+@property --scrollbar-width {
+  syntax: "<length>";
+  inherits: true;
+  initial-value: 8px;
+}
+
+@property --scrollbar-track-color {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: transparent;
+}
+
+@property --scrollbar-thumb-width {
+  syntax: "<length>";
+  inherits: true;
+  initial-value: 8px;
+}
+
+@property --scrollbar-thumb-color {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #0d0d0d8c;
+}
+
+@property --scrollbar-margin-block {
+  syntax: "<length>+";
+  inherits: false;
+  initial-value: 0px;
+}
+
+@property --scrollbar-margin-inline {
+  syntax: "<length>+";
+  inherits: false;
+  initial-value: 0px;
+}
+
+
+@utility custom-scrollbar {
+  @supports selector(::-webkit-scrollbar) {
+    & {
+      scrollbar-width: initial;
+      scrollbar-color: initial;
+    }
+
+    &::-webkit-scrollbar {
+      --scrollbar-width: inherit;
+      width: var(--scrollbar-width);
+      height: var(--scrollbar-width);
+      background-color: transparent;
+    }
+
+    &::-webkit-scrollbar-track {
+      /* 手动 inherit 继承父级变量 */
+      --scrollbar-margin-block: inherit;
+      --scrollbar-margin-inline: inherit;
+      margin-block: var(--scrollbar-margin-block);
+      margin-inline: var(--scrollbar-margin-inline);
+      border-radius: 9999px;
+      background-color: var(--scrollbar-track-color, transparent);
+    }
+
+    &::-webkit-scrollbar-thumb {
+      --scrollbar-thumb-color: inherit;
+      background-color: var(--scrollbar-thumb-color);
+      background-clip: padding-box;
+      border-style: solid;
+      border-color: transparent;
+
+      /* border-radius: <x-radius>/<y-radius> */
+      /* x-radius: scrollbar-width / 2 */
+      /* y-radius: thumb-width / 2 */
+      border-radius: calc(var(--scrollbar-width) / 2) / calc(var(--scrollbar-thumb-width) / 2);
+      border-block-width: 0px;
+      border-inline-width: calc((var(--scrollbar-width) - var(--scrollbar-thumb-width)) / 2);
+    }
+
+    /* Back to full size on hover/active */
+    &::-webkit-scrollbar-thumb:hover,
+    &::-webkit-scrollbar-thumb:active {
+      --scrollbar-thumb-width: var(--scrollbar-width);
+    }
+
+    &::-webkit-scrollbar-button,
+    &::-webkit-scrollbar-corner {
+      display: none;
+    }
+  }
+
+  @supports not selector(::-webkit-scrollbar) {
+    scrollbar-width: thin;
+  }
+}
+
+@utility custom-scrollbar-* {
+  --scrollbar-width: --spacing(--value(integer));
+  --scrollbar-width: --value([length]);
+}
+
+@utility custom-scrollbar-mx-* {
+  --scrollbar-margin-inline: --spacing(--value(integer));
+  --scrollbar-margin-inline: --value([length]);
+}
+
+@utility custom-scrollbar-my-* {
+  --scrollbar-margin-block: --spacing(--value(integer));
+  --scrollbar-margin-block: --value([length]);
+}
+
+@utility custom-scrollbar-thumb-* {
+  --scrollbar-thumb-color: --value(--color-*, [color]);
+  --scrollbar-thumb-width: --spacing(--value(integer));
+  --scrollbar-thumb-width: --value([length]);
+}

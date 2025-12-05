@@ -1,6 +1,13 @@
 /*! tailwindcss v4.1.17 | MIT License | https://tailwindcss.com */
 @layer properties {
   @supports (((-webkit-hyphens: none)) and (not (margin-trim: inline))) or ((-moz-orient: inline) and (not (color: rgb(from red r g b)))) {
+    :root, :host {
+      --scrollbar-width: 8px;
+      --scrollbar-track-color: transparent;
+      --scrollbar-thumb-width: 8px;
+      --scrollbar-thumb-color: #0d0d0d8c;
+    }
+
     *, :before, :after, ::backdrop {
       --tw-rotate-x: initial;
       --tw-rotate-y: initial;
@@ -9,6 +16,8 @@
       --tw-skew-y: initial;
       --tw-border-style: solid;
       --tw-leading: initial;
+      --scrollbar-margin-block: 0px;
+      --scrollbar-margin-inline: 0px;
     }
   }
 }
@@ -28,37 +37,59 @@
     grid-row-end: span 1;
   }
 
-  .container {
-    width: 100%;
-  }
+  @supports selector(::-webkit-scrollbar) {
+    .custom-scrollbar {
+      scrollbar-width: initial;
+      scrollbar-color: initial;
+    }
 
-  @media (min-width: 640px) {
-    .container {
-      max-width: 640px;
+    .custom-scrollbar::-webkit-scrollbar {
+      --scrollbar-width: inherit;
+      width: var(--scrollbar-width);
+      height: var(--scrollbar-width);
+      background-color: #0000;
+    }
+
+    .custom-scrollbar::-webkit-scrollbar-track {
+      --scrollbar-margin-block: inherit;
+      --scrollbar-margin-inline: inherit;
+      margin-block: var(--scrollbar-margin-block);
+      margin-inline: var(--scrollbar-margin-inline);
+      background-color: var(--scrollbar-track-color, transparent);
+      border-radius: 9999px;
+    }
+
+    .custom-scrollbar::-webkit-scrollbar-thumb {
+      --scrollbar-thumb-color: inherit;
+      background-color: var(--scrollbar-thumb-color);
+      border-radius: calc(var(--scrollbar-width) / 2) / calc(var(--scrollbar-thumb-width) / 2);
+      border-style: solid;
+      border-color: #0000;
+      border-block-width: 0;
+      border-inline-width: calc((var(--scrollbar-width)  - var(--scrollbar-thumb-width)) / 2);
+      background-clip: padding-box;
+    }
+
+    .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+      --scrollbar-thumb-width: var(--scrollbar-width);
+    }
+
+    .custom-scrollbar::-webkit-scrollbar-thumb:active {
+      --scrollbar-thumb-width: var(--scrollbar-width);
+    }
+
+    .custom-scrollbar::-webkit-scrollbar-button {
+      display: none;
+    }
+
+    .custom-scrollbar::-webkit-scrollbar-corner {
+      display: none;
     }
   }
 
-  @media (min-width: 768px) {
-    .container {
-      max-width: 768px;
-    }
-  }
-
-  @media (min-width: 1024px) {
-    .container {
-      max-width: 1024px;
-    }
-  }
-
-  @media (min-width: 1280px) {
-    .container {
-      max-width: 1280px;
-    }
-  }
-
-  @media (min-width: 1536px) {
-    .container {
-      max-width: 1536px;
+  @supports not selector(::-webkit-scrollbar) {
+    .custom-scrollbar {
+      scrollbar-width: thin;
     }
   }
 
@@ -264,6 +295,42 @@
   .\[\&_\*\]\:bg-red *, .\[\&\>\*\]\:bg-red > * {
     background-color: #ff505f;
   }
+}
+
+@property --scrollbar-width {
+  syntax: "<length>";
+  inherits: true;
+  initial-value: 8px;
+}
+
+@property --scrollbar-track-color {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #0000;
+}
+
+@property --scrollbar-thumb-width {
+  syntax: "<length>";
+  inherits: true;
+  initial-value: 8px;
+}
+
+@property --scrollbar-thumb-color {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #0d0d0d8c;
+}
+
+@property --scrollbar-margin-block {
+  syntax: "<length>+";
+  inherits: false;
+  initial-value: 0;
+}
+
+@property --scrollbar-margin-inline {
+  syntax: "<length>+";
+  inherits: false;
+  initial-value: 0;
 }
 
 @property --tw-rotate-x {

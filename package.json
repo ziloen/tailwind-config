@@ -34,7 +34,7 @@
     "@ziloen/eslint-config": "^0.1.74",
     "bumpp": "^10.3.2",
     "eslint": "^9.39.1",
-    "tsdown": "0.16.8",
+    "tsdown": "0.17.0",
     "typescript": "^5.9.3"
   },
   "dependencies": {

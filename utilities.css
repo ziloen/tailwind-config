@@ -1,5 +1,6 @@
 @plugin './dist/containerQueries.js';
 @plugin './dist/plugin.js';
+@import "./scrollbar.css";
 
 @utility col-end-span-* {
   grid-column-end: span --value(integer);
