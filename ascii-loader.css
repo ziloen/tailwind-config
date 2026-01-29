@@ -1,0 +1,301 @@
+@utility ascii-loader-line {
+  &::after {
+    @apply font-mono;
+    --tw-duration: inherit;
+    content: "|";
+    animation: ascii-loader-line var(--tw-duration, .5s) steps(4) infinite;
+  }
+}
+
+@utility ascii-loader-dots {
+  &::after {
+    @apply font-mono;
+    --tw-duration: inherit;
+    content: "|";
+    animation: ascii-loader-dots var(--tw-duration, .8s) steps(10) infinite;
+  }
+}
+
+@utility ascii-loader-triangle {
+  &::after {
+    @apply font-mono;
+    --tw-duration: inherit;
+    content: "◢";
+    animation: ascii-loader-triangle var(--tw-duration, .6s) steps(4) infinite;
+  }
+}
+
+@utility ascii-loader-clock {
+  &::after {
+    @apply font-mono;
+    --tw-duration: inherit;
+    content: "🕐";
+    animation: ascii-loader-clock var(--tw-duration, 1.2s) steps(12) infinite;
+  }
+}
+
+@utility ascii-loader-moon {
+  &::after {
+    @apply font-mono;
+    --tw-duration: inherit;
+    content: "🌑";
+    animation: ascii-loader-moon var(--tw-duration, 1.2s) steps(8) infinite;
+  }
+}
+
+@utility ascii-loader-bars {
+  &::after {
+    @apply font-mono;
+    --tw-duration: inherit;
+    content: "_";
+    animation: ascii-loader-bars var(--tw-duration, .9s) steps(15) infinite;
+  }
+}
+
+@keyframes ascii-loader-dots {
+  0% {
+    content: "⠋";
+  }
+
+  10% {
+    content: "⠙";
+  }
+
+  20% {
+    content: "⠹";
+  }
+
+  30% {
+    content: "⠸";
+  }
+
+  40% {
+    content: "⠼";
+  }
+
+  50% {
+    content: "⠴";
+  }
+
+  60% {
+    content: "⠦";
+  }
+
+  70% {
+    content: "⠧";
+  }
+
+  80% {
+    content: "⠇";
+  }
+
+  90% {
+    content: "⠏";
+  }
+
+  100% {
+    content: "⠋";
+  }
+}
+
+@keyframes ascii-loader-line {
+  0% {
+    content: "|";
+  }
+
+  25% {
+    content: "/";
+  }
+
+  50% {
+    content: "-";
+  }
+
+  75% {
+    content: "\\";
+  }
+
+  100% {
+    content: "|";
+  }
+}
+
+@keyframes ascii-loader-triangle {
+  0% {
+    content: "◢";
+  }
+
+  25% {
+    content: "◣";
+  }
+
+  50% {
+    content: "◤";
+  }
+
+  75% {
+    content: "◥";
+  }
+
+  100% {
+    content: "◢";
+  }
+}
+
+@keyframes ascii-loader-clock {
+  0% {
+    content: "🕐";
+  }
+
+  8.333% {
+    content: "🕑";
+  }
+
+  16.666% {
+    content: "🕒";
+  }
+
+  25% {
+    content: "🕓";
+  }
+
+  33.333% {
+    content: "🕔";
+  }
+
+  41.666% {
+    content: "🕕";
+  }
+
+  50% {
+    content: "🕖";
+  }
+
+  58.333% {
+    content: "🕗";
+  }
+
+  66.666% {
+    content: "🕘";
+  }
+
+  75% {
+    content: "🕙";
+  }
+
+  83.333% {
+    content: "🕚";
+  }
+
+  91.666% {
+    content: "🕛";
+  }
+
+  100% {
+    content: "🕐";
+  }
+}
+
+@keyframes ascii-loader-moon {
+  0% {
+    content: "🌑";
+  }
+
+  12.5% {
+    content: "🌒";
+  }
+
+  25% {
+    content: "🌓";
+  }
+
+  37.5% {
+    content: "🌔";
+  }
+
+  50% {
+    content: "🌕";
+  }
+
+  62.5% {
+    content: "🌖";
+  }
+
+  75% {
+    content: "🌗";
+  }
+
+  87.5% {
+    content: "🌘";
+  }
+
+  100% {
+    content: "🌑";
+  }
+}
+
+@keyframes ascii-loader-bars {
+  0% {
+    content: "_";
+  }
+
+  6.666% {
+    content: "▂";
+  }
+
+  13.333% {
+    content: "▃";
+  }
+
+  20% {
+    content: "▄";
+  }
+
+  26.666% {
+    content: "▅";
+  }
+
+  33.333% {
+    content: "▆";
+  }
+
+  40% {
+    content: "▇";
+  }
+
+  46.666% {
+    content: "█";
+  }
+
+  53.333% {
+    content: "▇";
+  }
+
+  60% {
+    content: "▆";
+  }
+
+  66.666% {
+    content: "▅";
+  }
+
+  73.333% {
+    content: "▄";
+  }
+
+  80% {
+    content: "▃";
+  }
+
+  86.666% {
+    content: "▂";
+  }
+
+  93.333% {
+    content: "_";
+  }
+
+  100% {
+    content: "_";
+  }
+}

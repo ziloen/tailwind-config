@@ -29,15 +29,15 @@
     "access": "public"
   },
   "devDependencies": {
-    "@tailwindcss/cli": "4.1.17",
-    "@types/node": "^24.10.1",
-    "@ziloen/eslint-config": "^0.1.74",
-    "bumpp": "^10.3.2",
-    "eslint": "^9.39.1",
-    "tsdown": "0.17.0",
+    "@tailwindcss/cli": "4.1.18",
+    "@types/node": "24.10.9",
+    "@ziloen/eslint-config": "^0.1.77",
+    "bumpp": "^10.4.0",
+    "eslint": "^9.39.2",
+    "tsdown": "0.20.1",
     "typescript": "^5.9.3"
   },
   "dependencies": {
-    "tailwindcss": "^4.1.17"
+    "tailwindcss": "^4.1.18"
   }
 }

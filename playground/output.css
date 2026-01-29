@@ -1,4 +1,4 @@
-/*! tailwindcss v4.1.17 | MIT License | https://tailwindcss.com */
+/*! tailwindcss v4.1.18 | MIT License | https://tailwindcss.com */
 @layer properties {
   @supports (((-webkit-hyphens: none)) and (not (margin-trim: inline))) or ((-moz-orient: inline) and (not (color: rgb(from red r g b)))) {
     :root, :host {
@@ -331,6 +331,254 @@
   syntax: "<length>+";
   inherits: false;
   initial-value: 0;
+}
+
+@keyframes ascii-loader-dots {
+  0% {
+    content: "⠋";
+  }
+
+  10% {
+    content: "⠙";
+  }
+
+  20% {
+    content: "⠹";
+  }
+
+  30% {
+    content: "⠸";
+  }
+
+  40% {
+    content: "⠼";
+  }
+
+  50% {
+    content: "⠴";
+  }
+
+  60% {
+    content: "⠦";
+  }
+
+  70% {
+    content: "⠧";
+  }
+
+  80% {
+    content: "⠇";
+  }
+
+  90% {
+    content: "⠏";
+  }
+
+  100% {
+    content: "⠋";
+  }
+}
+
+@keyframes ascii-loader-line {
+  0% {
+    content: "|";
+  }
+
+  25% {
+    content: "/";
+  }
+
+  50% {
+    content: "-";
+  }
+
+  75% {
+    content: "\\";
+  }
+
+  100% {
+    content: "|";
+  }
+}
+
+@keyframes ascii-loader-triangle {
+  0% {
+    content: "◢";
+  }
+
+  25% {
+    content: "◣";
+  }
+
+  50% {
+    content: "◤";
+  }
+
+  75% {
+    content: "◥";
+  }
+
+  100% {
+    content: "◢";
+  }
+}
+
+@keyframes ascii-loader-clock {
+  0% {
+    content: "🕐";
+  }
+
+  8.333% {
+    content: "🕑";
+  }
+
+  16.666% {
+    content: "🕒";
+  }
+
+  25% {
+    content: "🕓";
+  }
+
+  33.333% {
+    content: "🕔";
+  }
+
+  41.666% {
+    content: "🕕";
+  }
+
+  50% {
+    content: "🕖";
+  }
+
+  58.333% {
+    content: "🕗";
+  }
+
+  66.666% {
+    content: "🕘";
+  }
+
+  75% {
+    content: "🕙";
+  }
+
+  83.333% {
+    content: "🕚";
+  }
+
+  91.666% {
+    content: "🕛";
+  }
+
+  100% {
+    content: "🕐";
+  }
+}
+
+@keyframes ascii-loader-moon {
+  0% {
+    content: "🌑";
+  }
+
+  12.5% {
+    content: "🌒";
+  }
+
+  25% {
+    content: "🌓";
+  }
+
+  37.5% {
+    content: "🌔";
+  }
+
+  50% {
+    content: "🌕";
+  }
+
+  62.5% {
+    content: "🌖";
+  }
+
+  75% {
+    content: "🌗";
+  }
+
+  87.5% {
+    content: "🌘";
+  }
+
+  100% {
+    content: "🌑";
+  }
+}
+
+@keyframes ascii-loader-bars {
+  0% {
+    content: "_";
+  }
+
+  6.666% {
+    content: "▂";
+  }
+
+  13.333% {
+    content: "▃";
+  }
+
+  20% {
+    content: "▄";
+  }
+
+  26.666% {
+    content: "▅";
+  }
+
+  33.333% {
+    content: "▆";
+  }
+
+  40% {
+    content: "▇";
+  }
+
+  46.666% {
+    content: "█";
+  }
+
+  53.333% {
+    content: "▇";
+  }
+
+  60% {
+    content: "▆";
+  }
+
+  66.666% {
+    content: "▅";
+  }
+
+  73.333% {
+    content: "▄";
+  }
+
+  80% {
+    content: "▃";
+  }
+
+  86.666% {
+    content: "▂";
+  }
+
+  93.333% {
+    content: "_";
+  }
+
+  100% {
+    content: "_";
+  }
 }
 
 @property --tw-rotate-x {
