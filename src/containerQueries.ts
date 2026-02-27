@@ -2,7 +2,7 @@
 /* eslint-disable @typescript-eslint/unbound-method */
 import type { PluginsConfig } from 'tailwindcss/plugin'
 
-function parseValue(value: string) {
+function parseValue(value: string): [string, string] | null {
   const [, operator, numericValue] = value.match(/^([><]=?)?((?:\d+\.\d+|\d+|\.\d+)[a-zA-Z]+)$/) ?? []
   if (!numericValue) return null
 

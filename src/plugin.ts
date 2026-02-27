@@ -61,7 +61,7 @@ export default function pluginCreator({
     },
   })
 
-  // TODO: use v4 syntax
+  // FIXME: Not working in v4
   // https://github.com/w3c/csswg-drafts/issues/1544
   matchUtilities({
     'translate-inline-flow': (value: string) => ({

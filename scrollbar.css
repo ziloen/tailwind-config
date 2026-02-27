@@ -16,8 +16,10 @@
       /* 手动 inherit 继承父级变量 */
       --scrollbar-margin-block: inherit;
       --scrollbar-margin-inline: inherit;
-      margin-block: var(--scrollbar-margin-block);
-      margin-inline: var(--scrollbar-margin-inline);
+      margin-block-start: var(--scrollbar-margin-block-start);
+      margin-block-end: var(--scrollbar-margin-block-end);
+      margin-inline-start: var(--scrollbar-margin-inline-start);
+      margin-inline-end: var(--scrollbar-margin-inline-end);
       border-radius: 9999px;
       background-color: var(--scrollbar-track-color, transparent);
     }
@@ -60,14 +62,39 @@
 }
 
 @utility custom-scrollbar-mx-* {
-  --scrollbar-margin-inline: --spacing(--value(integer));
-  --scrollbar-margin-inline: --value([length]);
+  --scrollbar-margin-inline-start: --spacing(--value(integer));
+  --scrollbar-margin-inline-start: --value([length]);
+  --scrollbar-margin-inline-end: --spacing(--value(integer));
+  --scrollbar-margin-inline-end: --value([length]);
 }
 
 @utility custom-scrollbar-my-* {
-  --scrollbar-margin-block: --spacing(--value(integer));
-  --scrollbar-margin-block: --value([length]);
+  --scrollbar-margin-block-start: --spacing(--value(integer));
+  --scrollbar-margin-block-start: --value([length]);
+  --scrollbar-margin-block-end: --spacing(--value(integer));
+  --scrollbar-margin-block-end: --value([length]);
 }
+
+@utility custom-scrollbar-mbs-* {
+  --scrollbar-margin-block-start: --spacing(--value(integer));
+  --scrollbar-margin-block-start: --value([length]);
+}
+
+@utility custom-scrollbar-mbe-* {
+  --scrollbar-margin-block-end: --spacing(--value(integer));
+  --scrollbar-margin-block-end: --value([length]);
+}
+
+@utility custom-scrollbar-ms-* {
+  --scrollbar-margin-inline-start: --spacing(--value(integer));
+  --scrollbar-margin-inline-start: --value([length]);
+}
+
+@utility custom-scrollbar-me-* {
+  --scrollbar-margin-inline-end: --spacing(--value(integer));
+  --scrollbar-margin-inline-end: --value([length]);
+}
+
 
 @utility custom-scrollbar-thumb-* {
   --scrollbar-thumb-color: --value(--color-*, [color]);
@@ -100,14 +127,26 @@
   initial-value: #0d0d0d8c;
 }
 
-@property --scrollbar-margin-block {
-  syntax: "<length>+";
+@property --scrollbar-margin-inline-start {
+  syntax: "<length>";
   inherits: false;
   initial-value: 0px;
 }
 
-@property --scrollbar-margin-inline {
-  syntax: "<length>+";
+@property --scrollbar-margin-inline-end {
+  syntax: "<length>";
+  inherits: false;
+  initial-value: 0px;
+}
+
+@property --scrollbar-margin-block-start {
+  syntax: "<length>";
+  inherits: false;
+  initial-value: 0px;
+}
+
+@property --scrollbar-margin-block-end {
+  syntax: "<length>";
   inherits: false;
   initial-value: 0px;
 }

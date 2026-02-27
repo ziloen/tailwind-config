@@ -221,3 +221,4 @@ neighbors-nth-2:italic 前面后面 各自 第二个 兄弟元素
 /* Combine multiple variants */
 @custom-variant hover-focus (&:hover, &:focus);
 @custom-variant hover-active (&:hover, &:active);
+@custom-variant interact (&:hover, &:focus, &:active);
