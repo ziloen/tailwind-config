@@ -1,2 +1,2 @@
-@import "../preset.css" theme(inline);
+@import "../preset.css" theme(inline) source(none);
 @source "./index.html";

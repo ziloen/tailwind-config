@@ -12,7 +12,9 @@ export default defineConfig({
   format: ["es"],
   platform: "node",
   fixedExtension: false,
-  skipNodeModulesBundle: true,
+  deps: {
+    skipNodeModulesBundle: true,
+  },
   treeshake: true,
   sourcemap: false,
   clean: true,

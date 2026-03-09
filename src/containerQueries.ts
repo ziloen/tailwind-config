@@ -1,6 +1,5 @@
-/* eslint-disable @typescript-eslint/no-unsafe-assignment */
 /* eslint-disable @typescript-eslint/unbound-method */
-import type { PluginsConfig } from 'tailwindcss/plugin'
+import type { PluginAPI } from 'tailwindcss/plugin'
 
 function parseValue(value: string): [string, string] | null {
   const [, operator, numericValue] = value.match(/^([><]=?)?((?:\d+\.\d+|\d+|\.\d+)[a-zA-Z]+)$/) ?? []
@@ -9,68 +8,18 @@ function parseValue(value: string): [string, string] | null {
   return [operator, numericValue]
 }
 
-const containerQueries: PluginsConfig = {
-  handler: ({ matchVariant, theme }) => {
-    const values: Record<string, string> = theme('containers') ?? {}
+export default function containerQueries({ matchVariant }: PluginAPI): void {
+  // TODO: Add support for multiple conditions e.g. `@[>=900px,<1200px]`
+  // TODO: Add support for calc() e.g. `@[>=calc(900px+1rem)]`
+  matchVariant(
+    '@',
+    (value, { modifier }) => {
+      const [operator = '>=', parsed] = parseValue(value || '') ?? []
 
-    // TODO: Add support for multiple conditions e.g. `@[>=900px<1200px]`
-    // TODO: Add support for calc() e.g. `@[>=calc(900px+1rem)]`
-    matchVariant(
-      '@',
-      (value, { modifier }) => {
-        const [operator = '>=', parsed] = parseValue(value || '') ?? []
+      if (!parsed) return []
 
-        if (!parsed) return []
-
-        return `@container ${modifier ? `${modifier} ` : ''}(width ${operator} ${parsed})`
-      },
-      {
-        values,
-        sort(aVariant, zVariant) {
-          const a = parseFloat(aVariant.value)
-          const z = parseFloat(zVariant.value)
-
-          if (a === null || z === null) return 0
-
-          // Sort values themselves regardless of unit
-          if (a - z !== 0) return a - z
-
-          const aLabel = aVariant.modifier ?? ''
-          const zLabel = zVariant.modifier ?? ''
-
-          // Explicitly move empty labels to the end
-          if (aLabel === '' && zLabel !== '') {
-            return 1
-          } else if (aLabel !== '' && zLabel === '') {
-            return -1
-          }
-
-          // Sort labels alphabetically in the English locale
-          // We are intentionally overriding the locale because we do not want the sort to
-          // be affected by the machine's locale (be it a developer or CI environment)
-          return aLabel.localeCompare(zLabel, 'en', { numeric: true })
-        },
-      }
-    )
-  },
-  config: {
-    theme: {
-      containers: {
-        xs: '320px',
-        sm: '384px',
-        md: '448px',
-        lg: '512px',
-        xl: '576px',
-        '2xl': '672px',
-        '3xl': '768px',
-        '4xl': '896px',
-        '5xl': '1024px',
-        '6xl': '1152px',
-        '7xl': '1280px',
-      },
+      return `@container ${modifier ? `${modifier} ` : ''}(width ${operator} ${parsed})`
     },
-  },
+  )
 }
-
-export default containerQueries
 

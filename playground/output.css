@@ -1,4 +1,4 @@
-/*! tailwindcss v4.1.18 | MIT License | https://tailwindcss.com */
+/*! tailwindcss v4.2.1 | MIT License | https://tailwindcss.com */
 @layer properties {
   @supports (((-webkit-hyphens: none)) and (not (margin-trim: inline))) or ((-moz-orient: inline) and (not (color: rgb(from red r g b)))) {
     :root, :host {
@@ -9,15 +9,11 @@
     }
 
     *, :before, :after, ::backdrop {
-      --tw-rotate-x: initial;
-      --tw-rotate-y: initial;
-      --tw-rotate-z: initial;
-      --tw-skew-x: initial;
-      --tw-skew-y: initial;
-      --tw-border-style: solid;
       --tw-leading: initial;
-      --scrollbar-margin-block: 0px;
-      --scrollbar-margin-inline: 0px;
+      --scrollbar-margin-inline-start: 0px;
+      --scrollbar-margin-inline-end: 0px;
+      --scrollbar-margin-block-start: 0px;
+      --scrollbar-margin-block-end: 0px;
     }
   }
 }
@@ -53,10 +49,12 @@
     .custom-scrollbar::-webkit-scrollbar-track {
       --scrollbar-margin-block: inherit;
       --scrollbar-margin-inline: inherit;
-      margin-block: var(--scrollbar-margin-block);
-      margin-inline: var(--scrollbar-margin-inline);
       background-color: var(--scrollbar-track-color, transparent);
       border-radius: 9999px;
+      margin-block-start: var(--scrollbar-margin-block-start);
+      margin-block-end: var(--scrollbar-margin-block-end);
+      margin-inline-start: var(--scrollbar-margin-inline-start);
+      margin-inline-end: var(--scrollbar-margin-inline-end);
     }
 
     .custom-scrollbar::-webkit-scrollbar-thumb {
@@ -66,7 +64,7 @@
       border-style: solid;
       border-color: #0000;
       border-block-width: 0;
-      border-inline-width: calc((var(--scrollbar-width)  - var(--scrollbar-thumb-width)) / 2);
+      border-inline-width: calc((var(--scrollbar-width) - var(--scrollbar-thumb-width)) / 2);
       background-clip: padding-box;
     }
 
@@ -97,10 +95,6 @@
     justify-content: center;
     align-items: center;
     display: flex;
-  }
-
-  .inline {
-    display: inline;
   }
 
   .size-stretch {
@@ -134,97 +128,8 @@
     width: stretch;
   }
 
-  .flex-shrink {
-    flex-shrink: 1;
-  }
-
-  .flex-shrink-0 {
-    flex-shrink: 0;
-  }
-
-  .shrink {
-    flex-shrink: 1;
-  }
-
-  .shrink-0 {
-    flex-shrink: 0;
-  }
-
-  .flex-grow {
-    flex-grow: 1;
-  }
-
-  .flex-grow-0 {
-    flex-grow: 0;
-  }
-
-  .grow {
-    flex-grow: 1;
-  }
-
-  .grow-0 {
-    flex-grow: 0;
-  }
-
-  .transform {
-    transform: var(--tw-rotate-x, ) var(--tw-rotate-y, ) var(--tw-rotate-z, ) var(--tw-skew-x, ) var(--tw-skew-y, );
-  }
-
-  .border, .border-\[1px\] {
-    border-style: var(--tw-border-style);
-    border-width: 1px;
-  }
-
-  .boder-x-solid, .divide-x-solid > :not([hidden]) ~ :not([hidden]) {
-    border-inline-style: solid;
-  }
-
-  .boder-y-solid, .divide-y-solid > :not([hidden]) ~ :not([hidden]) {
-    border-block-style: solid;
-  }
-
-  .border-s-solid {
-    border-inline-start-style: solid;
-  }
-
-  .border-e-solid {
-    border-inline-end-style: solid;
-  }
-
-  .border-t-solid {
-    border-top-style: solid;
-  }
-
-  .border-r-solid {
-    border-right-style: solid;
-  }
-
-  .border-b-solid {
-    border-bottom-style: solid;
-  }
-
-  .border-l-solid {
-    border-left-style: solid;
-  }
-
-  .bg-\(--color\), .bg-\[var\(--color\)\] {
-    background-color: var(--color);
-  }
-
   .bg-green-600 {
     background-color: #2bc4a2;
-  }
-
-  .bg-gradient-to-end {
-    background-image: linear-gradient(to right, var(--tw-gradient-stops));
-  }
-
-  .bg-gradient-to-end:where([dir="rtl"], [dir="rtl"] *), .bg-gradient-to-start {
-    background-image: linear-gradient(to left, var(--tw-gradient-stops));
-  }
-
-  .bg-gradient-to-start:where([dir="rtl"], [dir="rtl"] *) {
-    background-image: linear-gradient(to right, var(--tw-gradient-stops));
   }
 
   .leading-5 {
@@ -234,10 +139,6 @@
 
   .text-dark-gray-50 {
     color: #5b5b66;
-  }
-
-  .lowercase {
-    text-transform: lowercase;
   }
 
   .area-\[1\/1\] {
@@ -250,18 +151,6 @@
 
   .text-stroke-dark-gray-50 {
     -webkit-text-stroke-color: #5b5b66;
-  }
-
-  :is(.\*\:bg-red > *) {
-    background-color: #ff505f;
-  }
-
-  :is(.\*\:bg-white > *) {
-    background-color: #fff;
-  }
-
-  :is(.\*\*\:bg-red *) {
-    background-color: #ff505f;
   }
 
   @container (max-width: 200px) {
@@ -291,10 +180,6 @@
       background-color: #ff505f;
     }
   }
-
-  .\[\&_\*\]\:bg-red *, .\[\&\>\*\]\:bg-red > * {
-    background-color: #ff505f;
-  }
 }
 
 @property --scrollbar-width {
@@ -321,47 +206,28 @@
   initial-value: #0d0d0d8c;
 }
 
-@property --scrollbar-margin-block {
-  syntax: "<length>+";
+@property --scrollbar-margin-inline-start {
+  syntax: "<length>";
   inherits: false;
   initial-value: 0;
 }
 
-@property --scrollbar-margin-inline {
-  syntax: "<length>+";
+@property --scrollbar-margin-inline-end {
+  syntax: "<length>";
   inherits: false;
   initial-value: 0;
 }
 
-@property --tw-rotate-x {
-  syntax: "*";
-  inherits: false
-}
-
-@property --tw-rotate-y {
-  syntax: "*";
-  inherits: false
-}
-
-@property --tw-rotate-z {
-  syntax: "*";
-  inherits: false
-}
-
-@property --tw-skew-x {
-  syntax: "*";
-  inherits: false
-}
-
-@property --tw-skew-y {
-  syntax: "*";
-  inherits: false
-}
-
-@property --tw-border-style {
-  syntax: "*";
+@property --scrollbar-margin-block-start {
+  syntax: "<length>";
   inherits: false;
-  initial-value: solid;
+  initial-value: 0;
+}
+
+@property --scrollbar-margin-block-end {
+  syntax: "<length>";
+  inherits: false;
+  initial-value: 0;
 }
 
 @property --tw-leading {
