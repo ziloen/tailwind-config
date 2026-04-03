@@ -97,10 +97,22 @@
   align-items: center;
 }
 
+@utility flex-center-safe {
+  display: flex;
+  justify-content: safe center;
+  align-items: safe center;
+}
+
 @utility inline-flex-center {
   display: inline-flex;
   justify-content: center;
   align-items: center;
+}
+
+@utility inline-flex-center-safe {
+  display: inline-flex;
+  justify-content: safe center;
+  align-items: safe center;
 }
 
 @utility scrollbar-gutter-auto {
