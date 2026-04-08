@@ -230,6 +230,12 @@ neighbors-nth-2:italic 前面后面 各自 第二个 兄弟元素
 @custom-variant slider-track (&::-webkit-slider-runnable-track, &::-moz-range-track);
 @custom-variant slider-progress (&::-moz-range-progress);
 
+@custom-variant @stuck-top {
+  @container scroll-state(stuck: top) {
+    @slot;
+  }
+}
+
 /* Combine multiple variants */
 @custom-variant hover-focus (&:hover, &:focus);
 @custom-variant hover-active (&:hover, &:active);
