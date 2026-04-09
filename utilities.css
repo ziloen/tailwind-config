@@ -230,11 +230,45 @@ neighbors-nth-2:italic 前面后面 各自 第二个 兄弟元素
 @custom-variant slider-track (&::-webkit-slider-runnable-track, &::-moz-range-track);
 @custom-variant slider-progress (&::-moz-range-progress);
 
-@custom-variant @stuck-top {
-  @container scroll-state(stuck: top) {
-    @slot;
-  }
-}
+@custom-variant @stuck-top (@container scroll-state(stuck: top));
+@custom-variant @stuck-bottom (@container scroll-state(stuck: bottom));
+
+@custom-variant @stuck-none (@container scroll-state(stuck: none));
+@custom-variant @stuck-t (@container scroll-state(stuck: top));
+@custom-variant @stuck-r (@container scroll-state(stuck: right));
+@custom-variant @stuck-b (@container scroll-state(stuck: bottom));
+@custom-variant @stuck-l (@container scroll-state(stuck: left));
+@custom-variant @stuck-s (@container scroll-state(stuck: inline-start));
+@custom-variant @stuck-e (@container scroll-state(stuck: inline-end));
+@custom-variant @stuck-bs (@container scroll-state(stuck: block-start));
+@custom-variant @stuck-be (@container scroll-state(stuck: block-end));
+@custom-variant @stuck-x (@container scroll-state(stuck: inline));
+@custom-variant @stuck-y (@container scroll-state(stuck: block));
+
+@custom-variant @scrollable-none (@container scroll-state(scrollable: none));
+@custom-variant @scrollable-t (@container scroll-state(scrollable: top));
+@custom-variant @scrollable-r (@container scroll-state(scrollable: right));
+@custom-variant @scrollable-b (@container scroll-state(scrollable: bottom));
+@custom-variant @scrollable-l (@container scroll-state(scrollable: left));
+@custom-variant @scrollable-s (@container scroll-state(scrollable: inline-start));
+@custom-variant @scrollable-e (@container scroll-state(scrollable: inline-end));
+@custom-variant @scrollable-bs (@container scroll-state(scrollable: block-start));
+@custom-variant @scrollable-be (@container scroll-state(scrollable: block-end));
+@custom-variant @scrollable-x (@container scroll-state(scrollable: inline));
+@custom-variant @scrollable-y (@container scroll-state(scrollable: block));
+
+@custom-variant @scrolled-none (@container scroll-state(scrolled: none));
+@custom-variant @scrolled-t (@container scroll-state(scrolled: top));
+@custom-variant @scrolled-r (@container scroll-state(scrolled: right));
+@custom-variant @scrolled-b (@container scroll-state(scrolled: bottom));
+@custom-variant @scrolled-l (@container scroll-state(scrolled: left));
+@custom-variant @scrolled-s (@container scroll-state(scrolled: inline-start));
+@custom-variant @scrolled-e (@container scroll-state(scrolled: inline-end));
+@custom-variant @scrolled-bs (@container scroll-state(scrolled: block-start));
+@custom-variant @scrolled-be (@container scroll-state(scrolled: block-end));
+@custom-variant @scrolled-x (@container scroll-state(scrolled: inline));
+@custom-variant @scrolled-y (@container scroll-state(scrolled: block));
+
 
 /* Combine multiple variants */
 @custom-variant hover-focus (&:hover, &:focus);
