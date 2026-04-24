@@ -195,6 +195,27 @@
   line-break: --value("normal", "auto", "loose", "strict", "anywhere");
 }
 
+/* https://github.com/tailwindlabs/tailwindcss/pull/19298 */
+@utility corner-* {
+  corner-shape: --value("bevel", "notch", "round", "scoop", "square", "squircle");
+}
+
+/* @utility counter-increment-* {
+  counter-increment: --value([*]);
+} */
+
+/* @utility counter-reset-* {
+  counter-reset: --value([*]);
+} */
+
+/* @utility counter-result-* {
+  content: counter(--value([*]));
+} */
+
+/* @utility glitch {
+  animation: glitch 1s infinite;
+} */
+
 
 /*
 following:bg-red-500 后面 所有 兄弟元素
