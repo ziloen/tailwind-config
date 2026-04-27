@@ -141,6 +141,10 @@
     color: #5b5b66;
   }
 
+  .filter-change-color-\[\#bea966\] {
+    filter: url("data:image/svg+xml;utf8,<svg xmlns=\"http://www.w3.org/2000/svg\"><filter id=\"f\"><feFlood flood-color=\"%23bea966\" result=\"f\"/><feComposite in=\"f\" in2=\"SourceGraphic\" operator=\"in\"/></filter></svg>#f");
+  }
+
   .area-\[1\/1\] {
     grid-area: 1 / 1;
   }

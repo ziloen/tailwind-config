@@ -79,6 +79,14 @@ export default function pluginCreator({
     values: theme('translate') as Record<string, string>
   })
 
+  matchUtilities({
+    'filter-change-color': (value: string) => ({
+      filter: `url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg"><filter id="f"><feFlood flood-color="${encodeURIComponent(value)}" result="f"/><feComposite in="f" in2="SourceGraphic" operator="in"/></filter></svg>#f')`
+    })
+  }, {
+    type: 'color',
+  })
+
 
 
   // matchUtilities(
@@ -111,4 +119,12 @@ export default function pluginCreator({
       5: '5',
     }
   })
+}
+
+function svgToDataUri(svg: string) {
+  return `data:image/svg+xml,${encodeURIComponent(collapseWhitespace(svg))}`
+}
+
+function collapseWhitespace(str: string) {
+  return str.trim().replace(/\s+/g, ' ')
 }
