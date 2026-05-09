@@ -115,38 +115,6 @@
   align-items: safe center;
 }
 
-@utility scrollbar-gutter-auto {
-  scrollbar-gutter: auto;
-}
-
-@utility scrollbar-gutter-stable {
-  scrollbar-gutter: stable;
-}
-
-@utility scrollbar-gutter-both {
-  scrollbar-gutter: stable both-edges;
-}
-
-@utility scrollbar-none {
-  scrollbar-width: none;
-
-  &::-webkit-scrollbar {
-    display: none;
-  }
-}
-
-@utility scrollbar-hidden {
-  scrollbar-width: none;
-
-  &::-webkit-scrollbar {
-    display: none;
-  }
-}
-
-@utility scrollbar-thin {
-  scrollbar-width: thin;
-}
-
 @utility resizable {
   resize: both;
   overflow: hidden;
