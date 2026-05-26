@@ -8,31 +8,6 @@ export default function pluginCreator({
   theme,
 }: PluginAPI): void {
   addUtilities({
-    '.border-t-solid': {
-      'border-top-style': 'solid',
-    },
-    '.border-r-solid': {
-      'border-right-style': 'solid',
-    },
-    '.border-b-solid': {
-      'border-bottom-style': 'solid',
-    },
-    '.border-l-solid': {
-      'border-left-style': 'solid',
-    },
-    '.boder-x-solid': {
-      'border-inline-style': 'solid',
-    },
-    '.boder-y-solid': {
-      'border-block-style': 'solid',
-    },
-    '.border-s-solid': {
-      'border-inline-start-style': 'solid',
-    },
-    '.border-e-solid': {
-      'border-inline-end-style': 'solid',
-    },
-
     '.divide-x-solid': {
       '& > :not([hidden]) ~ :not([hidden])': {
         'border-inline-style': 'solid'

@@ -1,7 +1,7 @@
 @plugin './dist/containerQueries.js';
 @plugin './dist/plugin.js';
-@import "./scrollbar.css";
-@import "./ascii-loader.css";
+@import './scrollbar.css';
+@import './ascii-loader.css';
 
 @utility col-end-span-* {
   grid-column-end: span --value(integer);
@@ -18,7 +18,7 @@
 }
 
 @utility animation-* {
-  animation-play-state: --value("paused", "running");
+  animation-play-state: --value('paused', 'running');
 }
 
 @utility z-max {
@@ -41,19 +41,19 @@
 /* https://www.w3.org/TR/css-inline-3/#text-box-edge */
 /* https://caniuse.com/css-text-box-trim */
 @utility text-box-* {
-  text-box-trim: --value("trim-both", "trim-start", "trim-end");
+  text-box-trim: --value('trim-both', 'trim-start', 'trim-end');
 }
 
 @utility leading-* {
-  text-box-trim: --value("trim-both", "trim-start", "trim-end");
+  text-box-trim: --value('trim-both', 'trim-start', 'trim-end');
 }
 
 @utility image-rendering-* {
-  image-rendering: --value("auto", "crisp-edges", "pixelated");
+  image-rendering: --value('auto', 'crisp-edges', 'pixelated');
 }
 
 @utility dir-* {
-  direction: --value("ltr", "rtl");
+  direction: --value('ltr', 'rtl');
 }
 
 @utility h-stretch {
@@ -97,6 +97,126 @@
   align-items: center;
 }
 
+@utility border-x-* {
+  border-inline-style: --value(
+    'none',
+    'hidden',
+    'dotted',
+    'dashed',
+    'solid',
+    'double',
+    'groove',
+    'ridge',
+    'inset',
+    'outset'
+  );
+}
+
+@utility border-y-* {
+  border-block-style: --value(
+    'none',
+    'hidden',
+    'dotted',
+    'dashed',
+    'solid',
+    'double',
+    'groove',
+    'ridge',
+    'inset',
+    'outset'
+  );
+}
+
+@utility border-t-* {
+  border-top-style: --value(
+    'none',
+    'hidden',
+    'dotted',
+    'dashed',
+    'solid',
+    'double',
+    'groove',
+    'ridge',
+    'inset',
+    'outset'
+  );
+}
+
+@utility border-r-* {
+  border-right-style: --value(
+    'none',
+    'hidden',
+    'dotted',
+    'dashed',
+    'solid',
+    'double',
+    'groove',
+    'ridge',
+    'inset',
+    'outset'
+  );
+}
+
+@utility border-b-* {
+  border-bottom-style: --value(
+    'none',
+    'hidden',
+    'dotted',
+    'dashed',
+    'solid',
+    'double',
+    'groove',
+    'ridge',
+    'inset',
+    'outset'
+  );
+}
+
+@utility border-l-* {
+  border-left-style: --value(
+    'none',
+    'hidden',
+    'dotted',
+    'dashed',
+    'solid',
+    'double',
+    'groove',
+    'ridge',
+    'inset',
+    'outset'
+  );
+}
+
+@utility border-s-* {
+  border-inline-start-style: --value(
+    'none',
+    'hidden',
+    'dotted',
+    'dashed',
+    'solid',
+    'double',
+    'groove',
+    'ridge',
+    'inset',
+    'outset'
+  );
+}
+
+@utility border-e-* {
+  border-inline-end-style: --value(
+    'none',
+    'hidden',
+    'dotted',
+    'dashed',
+    'solid',
+    'double',
+    'groove',
+    'ridge',
+    'inset',
+    'outset'
+  );
+}
+
 @utility flex-center-safe {
   display: flex;
   justify-content: safe center;
@@ -132,19 +252,18 @@
 
 /* Writing mode */
 @utility writing-* {
-  writing-mode: --value("vertical-rl", "vertical-lr", "horizontal-tb", "sideways-rl", "sideways-lr");
+  writing-mode: --value('vertical-rl', 'vertical-lr', 'horizontal-tb', 'sideways-rl', 'sideways-lr');
 }
 
 /* Overflow-anchor */
 @utility overflow-anchor-* {
-  overflow-anchor: --value("none", "auto");
+  overflow-anchor: --value('none', 'auto');
 }
 
 /* Modern way to create block formatting context */
 @utility clear-fix {
   display: flow-root;
 }
-
 
 /* Extends tailwindcss default utility classes */
 @utility basis-max {
@@ -160,12 +279,12 @@
 }
 
 @utility line-break-* {
-  line-break: --value("normal", "auto", "loose", "strict", "anywhere");
+  line-break: --value('normal', 'auto', 'loose', 'strict', 'anywhere');
 }
 
 /* https://github.com/tailwindlabs/tailwindcss/pull/19298 */
 @utility corner-* {
-  corner-shape: --value("bevel", "notch", "round", "scoop", "square", "squircle");
+  corner-shape: --value('bevel', 'notch', 'round', 'scoop', 'square', 'squircle');
 }
 
 /* @utility counter-increment-* {
@@ -183,7 +302,6 @@
 /* @utility glitch {
   animation: glitch 1s infinite;
 } */
-
 
 /*
 following:bg-red-500 后面 所有 兄弟元素
@@ -257,7 +375,6 @@ neighbors-nth-2:italic 前面后面 各自 第二个 兄弟元素
 @custom-variant @scrolled-be (@container scroll-state(scrolled: block-end));
 @custom-variant @scrolled-x (@container scroll-state(scrolled: inline));
 @custom-variant @scrolled-y (@container scroll-state(scrolled: block));
-
 
 /* Combine multiple variants */
 @custom-variant hover-focus (&:hover, &:focus);

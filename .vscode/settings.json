@@ -1,4 +1,7 @@
 {
+  "[css]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
   "[typescript]": {
     "editor.defaultFormatter": "dbaeumer.vscode-eslint"
   },
@@ -9,15 +12,10 @@
     ".vscode/css-data.json",
   ],
   "eslint.format.enable": true,
-  "tailwindCSS.experimental.configFile": "playground/index.css",
-  "javascript.preferences.autoImportSpecifierExcludeRegexes": [
+  "js/ts.preferences.autoImportSpecifierExcludeRegexes": [
     "^console$",
     "^node:console$",
     "^typescript$",
   ],
-  "typescript.preferences.autoImportSpecifierExcludeRegexes": [
-    "^console$",
-    "^node:console$",
-    "^typescript$",
-  ]
+  "tailwindCSS.experimental.configFile": "playground/index.css"
 }
