@@ -112,19 +112,19 @@ export default function pluginCreator({
   // ================================================
 
   // preceding-N: first N siblings BEFORE the target
-  // DEFAULT (no value): ALL siblings BEFORE the target → :has(~ &)
+  // DEFAULT (no value): ALL siblings BEFORE the target
   matchVariant('preceding', (value) => {
     const n = Number(value)
     // DEFAULT: handle preceding:utility (ALL before)
     if (value === 'all') return ':has(~ &)'
     if (!Number.isInteger(n) || n <= 0) return ''
+    if (n === 1) return ':has(+ &)'
 
     return `:nth-last-child(-n + ${n} of :has(~ &))`
   }, {
     values: {
       DEFAULT: 'all',
-      1: '1', 2: '2', 3: '3', 4: '4', 5: '5',
-      6: '6', 7: '7', 8: '8', 9: '9', 10: '10',
+      1: '1', 2: '2', 3: '3',
     }
   })
 
@@ -132,27 +132,29 @@ export default function pluginCreator({
   matchVariant('preceding-nth', (value) => {
     const n = Number(value)
     if (!Number.isInteger(n) || n <= 0) return ''
+    if (n === 1) return ':has(+ &)'
+
     return `:nth-last-child(${n} of :has(~ &))`
   }, {
     values: {
-      1: '1', 2: '2', 3: '3', 4: '4', 5: '5',
-      6: '6', 7: '7', 8: '8', 9: '9', 10: '10',
+      1: '1', 2: '2', 3: '3',
     }
   })
 
   // following-N: first N siblings AFTER the target
-  // DEFAULT (no value): ALL siblings AFTER the target → & ~ *
+  // DEFAULT (no value): ALL siblings AFTER the target
   matchVariant('following', (value) => {
     const n = Number(value)
     // DEFAULT: handle following:utility (ALL after)
     if (value === 'all') return '& ~ *'
     if (!Number.isInteger(n) || n <= 0) return ''
+    if (n === 1) return '& + *'
+
     return `:nth-child(-n + ${n} of & ~ *)`
   }, {
     values: {
       DEFAULT: 'all',
-      1: '1', 2: '2', 3: '3', 4: '4', 5: '5',
-      6: '6', 7: '7', 8: '8', 9: '9', 10: '10',
+      1: '1', 2: '2', 3: '3',
     }
   })
 
@@ -160,11 +162,14 @@ export default function pluginCreator({
   matchVariant('following-nth', (value) => {
     const n = Number(value)
     if (!Number.isInteger(n) || n <= 0) return ''
+    if (n === 1) return '& + *'
+
     return `:nth-child(${n} of & ~ *)`
   }, {
     values: {
-      1: '1', 2: '2', 3: '3', 4: '4', 5: '5',
-      6: '6', 7: '7', 8: '8', 9: '9', 10: '10',
+      1: '1',
+      2: '2',
+      3: '3',
     }
   })
 
@@ -172,10 +177,17 @@ export default function pluginCreator({
   matchVariant('neighbors', (value) => {
     const n = Number(value)
     if (!Number.isInteger(n) || n <= 0) return ''
-    return `:nth-child(-n + ${n} of & ~ *), :nth-last-child(-n + ${n} of :has(~ &))`
+    if (n === 1) return [':has(~ &)', '& + *']
+
+    return [
+      `:nth-child(-n + ${n} of & ~ *)`,
+      `:nth-last-child(-n + ${n} of :has(~ &))`
+    ]
   }, {
     values: {
-      1: '1', 2: '2', 3: '3', 4: '4', 5: '5',
+      1: '1',
+      2: '2',
+      3: '3',
     }
   })
 
@@ -183,10 +195,15 @@ export default function pluginCreator({
   matchVariant('neighbors-nth', (value) => {
     const n = Number(value)
     if (!Number.isInteger(n) || n <= 0) return ''
-    return `:nth-child(${n} of & ~ *), :nth-last-child(${n} of :has(~ &))`
+    if (n === 1) return [':has(~ &)', '& + *']
+
+    return [
+      `:nth-child(${n} of & ~ *)`,
+      `:nth-last-child(${n} of :has(~ &))`
+    ]
   }, {
     values: {
-      1: '1', 2: '2', 3: '3', 4: '4', 5: '5',
+      1: '1', 2: '2', 3: '3',
     }
   })
 }
