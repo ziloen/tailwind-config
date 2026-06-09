@@ -304,26 +304,17 @@
 } */
 
 /*
-following:bg-red-500 后面 所有 兄弟元素
-preceding:bg-blue-500 前面 所有 兄弟元素
-preceding-3:text-lg 前面 所有三个 兄弟元素
-preceding-nth-3:font-bold 后面 第三个 兄弟元素
-neighbors-2:underline 前面两个 和 后面两个 共四个 兄弟元素
-neighbors-nth-2:italic 前面后面 各自 第二个 兄弟元素
-*/
-/* @custom-variant preceding (:has(~ &)); */
-@custom-variant preceding {
-  :has(~ &) {
-    @slot;
-  }
-}
+preceding:bg-red-500   - style ALL siblings BEFORE the target
+following:bg-blue-500  - style ALL siblings AFTER the target
+preceding-3:text-lg    - first 3 siblings BEFORE target
+preceding-nth-3:font-bold - the 3rd sibling BEFORE target
+following-3:text-lg    - first 3 siblings AFTER target
+following-nth-3:font-bold - the 3rd sibling AFTER target
+neighbors-2:underline  - 2 before + 2 after = 4 siblings
+neighbors-nth-2:italic - 2nd before + 2nd after
 
-/* @custom-variant following (& ~ *); */
-@custom-variant following {
-  & ~ * {
-    @slot;
-  }
-}
+Note: preceding / following (ALL + numeric) are implemented in plugin.ts via matchVariant.
+*/
 
 /* Webkit scrollbar pseudo */
 @custom-variant webkit-scrollbar (&::-webkit-scrollbar);

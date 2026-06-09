@@ -80,18 +80,113 @@ export default function pluginCreator({
   //   { values: flattenColorPalette(theme("backgroundColor")), type: "color" }
   // )
 
-  matchVariant('neighbors-nth', (value) => {
-    const n = Number(value)
-    if (Number.isNaN(n) || n <= 0) return ''
+  // ================================================
+  // Sibling variants using :nth-child() technique
+  // Ref: https://chriskirknielsen.com/blog/nth-next-sibling-no-need/
+  //
+  // preceding:  style siblings BEFORE the target  → :has(~ &) / :nth-last-child()
+  // following:  style siblings AFTER the target   → & ~ *      / :nth-child()
+  //
+  // preceding-N:       first N siblings BEFORE target  :nth-last-child(-n + N of :has(~ &))
+  // preceding-nth-N:   the Nth sibling BEFORE target    :nth-last-child(N of :has(~ &))
+  // following-N:       first N siblings AFTER target   :nth-child(-n + N of & ~ *)
+  // following-nth-N:   the Nth sibling AFTER target     :nth-child(N of & ~ *)
+  // neighbors-N:       N before + N after              combine both (-n + N)
+  // neighbors-nth-N:   Nth before + Nth after           combine both (N)
+  //
+  //  Diagram:  | = target   # = styled siblings   . = unaffected
+  //
+  //               -5-4-3-2-1 | 1 2 3 4 5
+  //  layout:       . . . . . | . . . . .
+  //
+  //  preceding           #####|.....   ALL before
+  //  preceding-3         ..###|.....   first 3 before
+  //  preceding-nth-2     ...#.|.....   2nd before
+  //
+  //  following           .....|#####   ALL after
+  //  following-3         .....|###..   first 3 after
+  //  following-nth-2     .....|.#...   2nd after
+  //
+  //  neighbors-2         ...##|##...   2 before + 2 after
+  //  neighbors-nth-2     ...#.|.#...   2nd before + 2nd after
+  // ================================================
 
-    return `&${' + *'.repeat(n)}, :has(${'+ * '.repeat(n - 1)}+ &)`
+  // preceding-N: first N siblings BEFORE the target
+  // DEFAULT (no value): ALL siblings BEFORE the target → :has(~ &)
+  matchVariant('preceding', (value) => {
+    const n = Number(value)
+    // DEFAULT: handle preceding:utility (ALL before)
+    if (value === 'all') return ':has(~ &)'
+    if (!Number.isInteger(n) || n <= 0) return ''
+
+    return `:nth-last-child(-n + ${n} of :has(~ &))`
   }, {
     values: {
-      1: '1',
-      2: '2',
-      3: '3',
-      4: '4',
-      5: '5',
+      DEFAULT: 'all',
+      1: '1', 2: '2', 3: '3', 4: '4', 5: '5',
+      6: '6', 7: '7', 8: '8', 9: '9', 10: '10',
+    }
+  })
+
+  // preceding-nth-N: the Nth sibling BEFORE the target
+  matchVariant('preceding-nth', (value) => {
+    const n = Number(value)
+    if (!Number.isInteger(n) || n <= 0) return ''
+    return `:nth-last-child(${n} of :has(~ &))`
+  }, {
+    values: {
+      1: '1', 2: '2', 3: '3', 4: '4', 5: '5',
+      6: '6', 7: '7', 8: '8', 9: '9', 10: '10',
+    }
+  })
+
+  // following-N: first N siblings AFTER the target
+  // DEFAULT (no value): ALL siblings AFTER the target → & ~ *
+  matchVariant('following', (value) => {
+    const n = Number(value)
+    // DEFAULT: handle following:utility (ALL after)
+    if (value === 'all') return '& ~ *'
+    if (!Number.isInteger(n) || n <= 0) return ''
+    return `:nth-child(-n + ${n} of & ~ *)`
+  }, {
+    values: {
+      DEFAULT: 'all',
+      1: '1', 2: '2', 3: '3', 4: '4', 5: '5',
+      6: '6', 7: '7', 8: '8', 9: '9', 10: '10',
+    }
+  })
+
+  // following-nth-N: the Nth sibling AFTER the target
+  matchVariant('following-nth', (value) => {
+    const n = Number(value)
+    if (!Number.isInteger(n) || n <= 0) return ''
+    return `:nth-child(${n} of & ~ *)`
+  }, {
+    values: {
+      1: '1', 2: '2', 3: '3', 4: '4', 5: '5',
+      6: '6', 7: '7', 8: '8', 9: '9', 10: '10',
+    }
+  })
+
+  // neighbors-N: N siblings BEFORE + N siblings AFTER the target
+  matchVariant('neighbors', (value) => {
+    const n = Number(value)
+    if (!Number.isInteger(n) || n <= 0) return ''
+    return `:nth-child(-n + ${n} of & ~ *), :nth-last-child(-n + ${n} of :has(~ &))`
+  }, {
+    values: {
+      1: '1', 2: '2', 3: '3', 4: '4', 5: '5',
+    }
+  })
+
+  // neighbors-nth-N: the Nth sibling BEFORE + AFTER the target
+  matchVariant('neighbors-nth', (value) => {
+    const n = Number(value)
+    if (!Number.isInteger(n) || n <= 0) return ''
+    return `:nth-child(${n} of & ~ *), :nth-last-child(${n} of :has(~ &))`
+  }, {
+    values: {
+      1: '1', 2: '2', 3: '3', 4: '4', 5: '5',
     }
   })
 }
