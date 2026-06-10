@@ -84,20 +84,7 @@ export default function pluginCreator({
   // Sibling variants using :nth-child() technique
   // Ref: https://chriskirknielsen.com/blog/nth-next-sibling-no-need/
   //
-  // preceding:  style siblings BEFORE the target  → :has(~ &) / :nth-last-child()
-  // following:  style siblings AFTER the target   → & ~ *      / :nth-child()
-  //
-  // preceding-N:       first N siblings BEFORE target  :nth-last-child(-n + N of :has(~ &))
-  // preceding-nth-N:   the Nth sibling BEFORE target    :nth-last-child(N of :has(~ &))
-  // following-N:       first N siblings AFTER target   :nth-child(-n + N of & ~ *)
-  // following-nth-N:   the Nth sibling AFTER target     :nth-child(N of & ~ *)
-  // neighbors-N:       N before + N after              combine both (-n + N)
-  // neighbors-nth-N:   Nth before + Nth after           combine both (N)
-  //
-  //  Diagram:  | = target   # = styled siblings   . = unaffected
-  //
-  //               -5-4-3-2-1 | 1 2 3 4 5
-  //  layout:       . . . . . | . . . . .
+  //  | = target   # = styled siblings   . = unaffected
   //
   //  preceding           #####|.....   ALL before
   //  preceding-3         ..###|.....   first 3 before
@@ -114,10 +101,12 @@ export default function pluginCreator({
   // preceding-N: first N siblings BEFORE the target
   // DEFAULT (no value): ALL siblings BEFORE the target
   matchVariant('preceding', (value) => {
-    const n = Number(value)
     // DEFAULT: handle preceding:utility (ALL before)
     if (value === 'all') return ':has(~ &)'
+
+    const n = Number(value)
     if (!Number.isInteger(n) || n <= 0) return ''
+
     if (n === 1) return ':has(+ &)'
 
     return `:nth-last-child(-n + ${n} of :has(~ &))`
@@ -144,10 +133,12 @@ export default function pluginCreator({
   // following-N: first N siblings AFTER the target
   // DEFAULT (no value): ALL siblings AFTER the target
   matchVariant('following', (value) => {
-    const n = Number(value)
     // DEFAULT: handle following:utility (ALL after)
     if (value === 'all') return '& ~ *'
+
+    const n = Number(value)
     if (!Number.isInteger(n) || n <= 0) return ''
+
     if (n === 1) return '& + *'
 
     return `:nth-child(-n + ${n} of & ~ *)`
@@ -174,10 +165,13 @@ export default function pluginCreator({
   })
 
   // neighbors-N: N siblings BEFORE + N siblings AFTER the target
+  // DEFAULT (no value): ALL siblings
   matchVariant('neighbors', (value) => {
+    if (value === 'all') return [':has(~ &)', '& ~ *']
+
     const n = Number(value)
     if (!Number.isInteger(n) || n <= 0) return ''
-    if (n === 1) return [':has(~ &)', '& + *']
+    if (n === 1) return [':has(+ &)', '& + *']
 
     return [
       `:nth-child(-n + ${n} of & ~ *)`,
@@ -185,6 +179,7 @@ export default function pluginCreator({
     ]
   }, {
     values: {
+      DEFAULT: 'all',
       1: '1',
       2: '2',
       3: '3',
