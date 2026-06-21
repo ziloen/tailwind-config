@@ -97,6 +97,10 @@
   align-items: center;
 }
 
+@utility content-visibility {
+  content-visibility: --value('auto', 'hidden', 'visible');
+}
+
 @utility border-x-* {
   border-inline-style: --value(
     'none',
