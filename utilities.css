@@ -97,7 +97,7 @@
   align-items: center;
 }
 
-@utility content-visibility {
+@utility content-visibility-* {
   content-visibility: --value('auto', 'hidden', 'visible');
 }
 
