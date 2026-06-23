@@ -291,6 +291,26 @@
   corner-shape: --value('bevel', 'notch', 'round', 'scoop', 'square', 'squircle');
 }
 
+@utility vt-class-none {
+  view-transition-class: none;
+}
+
+@utility vt-class-* {
+  view-transition-class: --value([*]);
+}
+
+@utility vt-name-none {
+  view-transition-name: none;
+}
+
+@utility vt-name-match {
+  view-transition-name: match-element;
+}
+
+@utility vt-name-* {
+  view-transition-name: --value([*]);
+}
+
 /* @utility counter-increment-* {
   counter-increment: --value([*]);
 } */
