@@ -311,6 +311,17 @@
   view-transition-name: --value([*]);
 }
 
+@utility divide-x-solid {
+  :where(& > :not(:last-child)) {
+    border-inline-style: solid;
+  }
+}
+@utility divide-y-solid {
+  :where(& > :not(:last-child)) {
+    border-block-style: solid;
+  }
+}
+
 /* @utility counter-increment-* {
   counter-increment: --value([*]);
 } */

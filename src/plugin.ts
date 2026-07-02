@@ -8,17 +8,6 @@ export default function pluginCreator({
   theme,
 }: PluginAPI): void {
   addUtilities({
-    '.divide-x-solid': {
-      '& > :not([hidden]) ~ :not([hidden])': {
-        'border-inline-style': 'solid'
-      }
-    },
-    '.divide-y-solid': {
-      '& > :not([hidden]) ~ :not([hidden])': {
-        'border-block-style': 'solid'
-      }
-    },
-
     // https://github.com/w3c/csswg-drafts/issues/1724
     '.bg-gradient-to-start': {
       'background-image': 'linear-gradient(to left, var(--tw-gradient-stops))',
@@ -64,23 +53,6 @@ export default function pluginCreator({
 
 
 
-  // matchUtilities(
-  //   {
-  //     "bg-grid": (value: string) => ({
-  //       backgroundImage: `url("${svgToDataUri(
-  //         `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32" fill="none" stroke="${value}"><path d="M0 .5H31.5V32"/></svg>`
-  //       )}")`,
-  //     }),
-  //     "bg-checkerboard": (value: string) => ({
-  //       backgroundImage: `url("${svgToDataUri(
-  //         `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32"><path fill="${value}" stroke="none" d="M0 0h16v32h16v-16h-32z"/><path fill="#fff" stroke="none" d="M0 32h16v-32h16v16h-32z"/></svg>`
-  //       )}")`,
-  //     })
-  //   },
-  //   { values: flattenColorPalette(theme("backgroundColor")), type: "color" }
-  // )
-
-  // ================================================
   // Sibling variants using :nth-child() technique
   // Ref: https://chriskirknielsen.com/blog/nth-next-sibling-no-need/
   //
@@ -96,7 +68,6 @@ export default function pluginCreator({
   //
   //  neighbors-2         ...##|##...   2 before + 2 after
   //  neighbors-nth-2     ...#.|.#...   2nd before + 2nd after
-  // ================================================
 
   // preceding-N: first N siblings BEFORE the target
   // DEFAULT (no value): ALL siblings BEFORE the target
@@ -201,6 +172,26 @@ export default function pluginCreator({
       1: '1', 2: '2', 3: '3',
     }
   })
+
+  matchVariant('@style', (value, { modifier }) => {
+    return `@container${modifier ? ` ${modifier}` : ''} style(${value})`
+  })
+
+  // matchUtilities(
+  //   {
+  //     "bg-grid": (value: string) => ({
+  //       backgroundImage: `url("${svgToDataUri(
+  //         `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32" fill="none" stroke="${value}"><path d="M0 .5H31.5V32"/></svg>`
+  //       )}")`,
+  //     }),
+  //     "bg-checkerboard": (value: string) => ({
+  //       backgroundImage: `url("${svgToDataUri(
+  //         `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32"><path fill="${value}" stroke="none" d="M0 0h16v32h16v-16h-32z"/><path fill="#fff" stroke="none" d="M0 32h16v-32h16v16h-32z"/></svg>`
+  //       )}")`,
+  //     })
+  //   },
+  //   { values: flattenColorPalette(theme("backgroundColor")), type: "color" }
+  // )
 }
 
 function svgToDataUri(svg: string) {

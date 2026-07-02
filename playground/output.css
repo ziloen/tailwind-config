@@ -1,4 +1,4 @@
-/*! tailwindcss v4.3.1 | MIT License | https://tailwindcss.com */
+/*! tailwindcss v4.3.2 | MIT License | https://tailwindcss.com */
 @layer properties {
   @supports (((-webkit-hyphens: none)) and (not (margin-trim: inline))) or ((-moz-orient: inline) and (not (color: rgb(from red r g b)))) {
     :root, :host {
@@ -215,6 +215,18 @@
 
   .neighbors-nth-3\:bg-orange-500 :nth-child(3 of .neighbors-nth-3\:bg-orange-500 ~ *), .neighbors-nth-3\:bg-orange-500 :nth-last-child(3 of :has( ~ .neighbors-nth-3\:bg-orange-500)) {
     background-color: #ff7139;
+  }
+
+  @container green style(--width > 500px) {
+    .\@style-\[--width_\>_500px\]\/green\:bg-green {
+      background-color: #3fe1b0;
+    }
+  }
+
+  @container style(--width >= 500px) {
+    .\@style-\[--width_\>\=_500px\]\:bg-blue {
+      background-color: #0060e0;
+    }
   }
 
   @container scroll-state(stuck: top) {
