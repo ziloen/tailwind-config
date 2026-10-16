@@ -1,4 +1,4 @@
-/*! tailwindcss v4.3.2 | MIT License | https://tailwindcss.com */
+/*! tailwindcss v4.3.3 | MIT License | https://tailwindcss.com */
 @layer properties {
   @supports (((-webkit-hyphens: none)) and (not (margin-trim: inline))) or ((-moz-orient: inline) and (not (color: rgb(from red r g b)))) {
     :root, :host {
@@ -183,15 +183,15 @@
     background-color: #ff505f;
   }
 
-  .preceding-\[8\]\:bg-orange-500 :nth-last-child(-n+8 of :has( ~ .preceding-\[8\]\:bg-orange-500)) {
+  :nth-last-child(-n+8 of :has( ~ .preceding-\[8\]\:bg-orange-500)) {
     background-color: #ff7139;
   }
 
-  .preceding-nth-2\:bg-green-500 :nth-last-child(2 of :has( ~ .preceding-nth-2\:bg-green-500)) {
+  :nth-last-child(2 of :has( ~ .preceding-nth-2\:bg-green-500)) {
     background-color: #3fe1b0;
   }
 
-  .following-3\:bg-yellow-500 :nth-child(-n+3 of .following-3\:bg-yellow-500 ~ *) {
+  :nth-child(-n+3 of .following-3\:bg-yellow-500 ~ *) {
     background-color: #ffa537;
   }
 
@@ -201,19 +201,19 @@
     }
   }
 
-  .following-nth-2\:bg-purple-500 :nth-child(2 of .following-nth-2\:bg-purple-500 ~ *) {
+  :nth-child(2 of .following-nth-2\:bg-purple-500 ~ *) {
     background-color: #b933e1;
   }
 
-  .neighbors-2\:bg-pink-500 :nth-child(-n+2 of .neighbors-2\:bg-pink-500 ~ *), .neighbors-2\:bg-pink-500 :nth-last-child(-n+2 of :has( ~ .neighbors-2\:bg-pink-500)) {
+  :nth-child(-n+2 of .neighbors-2\:bg-pink-500 ~ *), :nth-last-child(-n+2 of :has( ~ .neighbors-2\:bg-pink-500)) {
     background-color: #ff2a8a;
   }
 
-  .neighbors-nth-2\:bg-red-500 :nth-child(2 of .neighbors-nth-2\:bg-red-500 ~ *), .neighbors-nth-2\:bg-red-500 :nth-last-child(2 of :has( ~ .neighbors-nth-2\:bg-red-500)) {
+  :nth-child(2 of .neighbors-nth-2\:bg-red-500 ~ *), :nth-last-child(2 of :has( ~ .neighbors-nth-2\:bg-red-500)) {
     background-color: #ff505f;
   }
 
-  .neighbors-nth-3\:bg-orange-500 :nth-child(3 of .neighbors-nth-3\:bg-orange-500 ~ *), .neighbors-nth-3\:bg-orange-500 :nth-last-child(3 of :has( ~ .neighbors-nth-3\:bg-orange-500)) {
+  :nth-child(3 of .neighbors-nth-3\:bg-orange-500 ~ *), :nth-last-child(3 of :has( ~ .neighbors-nth-3\:bg-orange-500)) {
     background-color: #ff7139;
   }
 
